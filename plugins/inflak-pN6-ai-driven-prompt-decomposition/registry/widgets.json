@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "widgets": [
+    {
+      "id": "prompt-structure-tree",
+      "skill": "l3-pN6-prompt-structure-tree",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN6-prompt-structure-tree/SKILL.md",
+      "widget_type": "prompt_structure_tree",
+      "surface": "conversation_widget",
+      "interaction_modality": "hierarchical_prompt_restructuring",
+      "supported_artifact_types": ["text", "prompt-structure"],
+      "interaction_goals": ["organize_prompt_hierarchy", "complete_prompt_components"],
+      "iai_edges": ["I→T"],
+      "gap_categories": ["hierarchical_structure_gap", "component_gap"],
+      "state_update_targets": ["prompt_structure", "prompt_components"],
+      "expected_return_types": ["structure_kind", "tree_nodes", "root_ids", "selected_node_id", "expanded_node_ids", "fragment_edits", "unresolved_ids", "freeform_note"],
+      "widget_capabilities": ["expand_tree", "collapse_tree", "select_node", "reparent_node", "reorder_siblings", "create_node", "rename_node", "delete_node", "assign_fragment", "edit_fragment", "split_fragment", "merge_fragments", "mark_status", "inspect_provenance"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["prompt-decomposition"]
+    },
+    {
+      "id": "prompt-cell",
+      "skill": "l3-pN6-prompt-cell",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN6-prompt-cell/SKILL.md",
+      "widget_type": "prompt_cell_map",
+      "surface": "conversation_widget",
+      "interaction_modality": "topical_cell_grouping",
+      "supported_artifact_types": ["text", "prompt-structure"],
+      "interaction_goals": ["organize_prompt_topics", "complete_prompt_components"],
+      "iai_edges": ["I→T"],
+      "gap_categories": ["topic_grouping_gap", "component_gap"],
+      "state_update_targets": ["prompt_structure", "prompt_components"],
+      "expected_return_types": ["structure_kind", "cells", "unassigned_fragment_ids", "selected_cell_id", "fragment_edits", "freeform_note"],
+      "widget_capabilities": ["create_cell", "rename_cell", "delete_cell", "reorder_cells", "assign_fragment", "remove_fragment", "edit_fragment", "inspect_provenance"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["prompt-decomposition"]
+    },
+    {
+      "id": "story-brief-review",
+      "skill": "l3-pN6-story-brief",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN6-story-brief/SKILL.md",
+      "widget_type": "story_brief_review",
+      "surface": "conversation_widget",
+      "interaction_modality": "editable_brief_review",
+      "supported_artifact_types": ["text", "prompt-structure", "story-brief"],
+      "interaction_goals": ["review_story_brief"],
+      "iai_edges": ["I→Aug"],
+      "gap_categories": ["brief_review_gap"],
+      "state_update_targets": ["augmented_instruction"],
+      "expected_return_types": ["structure_kind", "brief_sections", "selected_section_id", "unresolved_ids", "approved", "freeform_note"],
+      "widget_capabilities": ["select_section", "expand_section", "collapse_section", "edit_section", "mark_status", "inspect_provenance", "approve_brief", "return_to_structure"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["prompt-decomposition"]
+    }
+  ]
+}

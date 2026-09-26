@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "pN8-collage-control",
+      "skill": "l2-pN8-collage-control",
+      "execution_skill": "exec-pN8-collage-authoring",
+      "execution_skill_path": "skills/exec-pN8-collage-authoring/SKILL.md",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN8-collage-control/SKILL.md",
+      "task_family": "generative-artifact-control",
+      "required_state": ["user_text"],
+      "optional_state": ["source_prompt", "asset_plan", "cutout_assets", "authoring_preparation_queue", "prepared_authoring_results", "collage_artifact", "collage_scene", "authoring_bundle", "active_style_preset_id", "control_opportunities", "selected_object_ids", "prior_returns", "generation_state", "comparison_state", "acceptance_state"],
+      "iai_edges": ["H→T", "H→I", "I→Aug", "Aug→G", "G→A", "A→G", "A→Aug", "G→I", "I→A"],
+      "gap_categories": ["collage_object_selection_gap", "object_target_gap", "collage_visual_style_gap", "svg_element_style_gap", "collage_asset_replacement_gap", "collage_element_insertion_gap", "collage_object_actions_gap", "collage_object_transform_gap", "collage_object_position_gap", "collage_layer_order_gap", "collage_text_edit_gap", "artifact_comparison_gap", "collage_acceptance_gap"],
+      "allowed_tools": ["generate_image", "edit_image", "restyle_image", "outpaint_image", "remove_background", "generate_variations", "transform_image", "adjust_image", "apply_filter", "extract_collage_cutouts", "compose_svg_collage", "manage_svg_document"],
+      "loop_return_to": "l1-pN8-core-module",
+      "trigger_summary": "Generate a themed layered SVG collage or directly manipulate its stable cutout and text objects."
+    }
+  ]
+}

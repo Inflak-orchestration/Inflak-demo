@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "tools": [
+    {
+      "id": "render_html_widget",
+      "layer": "layer-4",
+      "category": "html_widget_renderer",
+      "renderer_role": "primary",
+      "description": "Render generated sandboxed HTML/CSS/JS for P5 direction comparison and focused prompt widgets, returning structured input through window.submitWidget(values)."
+    }
+  ]
+}

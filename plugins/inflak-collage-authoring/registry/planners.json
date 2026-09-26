@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "collage-authoring",
+      "skill": "l2-collage-authoring-planner",
+      "execution_skill": "exec-collage-authoring",
+      "execution_skill_path": "skills/exec-collage-authoring/SKILL.md",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-collage-authoring-planner/SKILL.md",
+      "task_family": "unified-collage-authoring",
+      "required_state": ["entry_mode", "source_intent"],
+      "optional_state": ["asset_plan", "artifact", "analysis", "proposals", "interaction_specs", "active_interaction_id", "preview_state", "interaction_returns", "decisions", "augmented_intent", "candidate_assets", "authoring_bundle", "pending_operations", "execution", "comparison_state", "acceptance", "prior_returns"],
+      "iai_edges": ["H→T", "H→I", "T→G", "T→Aug", "I→Aug", "I→A", "Aug→G", "A→Aug", "A→G", "G→A", "G→I"],
+      "gap_categories": ["entry_mode_gap", "creation_intent_gap", "interaction_execution_gap", "proposal_target_gap", "proposal_relation_gap", "proposal_operation_gap", "proposal_decision_gap", "augmented_intent_review_gap", "candidate_selection_gap", "artifact_comparison_gap", "artifact_acceptance_gap"],
+      "allowed_tools": ["manage_svg_document", "inspect_svg_scene", "compose_svg_collage", "generate_image", "edit_image", "restyle_image", "outpaint_image", "remove_background", "generate_variations", "transform_image", "adjust_image", "apply_filter", "extract_collage_cutouts", "apply_svg_presentation", "apply_svg_layout", "apply_svg_structure"],
+      "loop_return_to": "l1-collage-authoring-core"
+    }
+  ]
+}

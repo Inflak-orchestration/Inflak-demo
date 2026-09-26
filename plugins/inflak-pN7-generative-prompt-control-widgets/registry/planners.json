@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "image-prompt-control",
+      "task_family": "image_generation",
+      "skill": "l2-pN7-image-prompt-control",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN7-image-prompt-control/SKILL.md",
+      "priority": 90,
+      "trigger_summary": "Use when an image prompt needs explicit control of prompt entities, visual hierarchy, composition allocation, candidate preferences, exclusions, or supported weighted emphasis before generation.",
+      "required_state": ["user_text"],
+      "optional_state": ["source_prompt", "current_prompt", "control_spec", "provider_capabilities", "prior_returns", "last_image", "image_feedback"],
+      "iai_edges": ["H→T", "T→G", "G→I", "I→Aug", "Aug→G", "G→A"],
+      "gap_categories": ["entity_scope_gap", "subject_priority_gap", "composition_allocation_gap", "attention_weight_gap", "candidate_preference_gap", "prompt_confirmation_gap"],
+      "allowed_tools": ["generate_image"],
+      "loop_return_to": "l1-pN7-core-module",
+      "expected_outputs": ["compiled_image_prompt", "generated_image"]
+    }
+  ]
+}

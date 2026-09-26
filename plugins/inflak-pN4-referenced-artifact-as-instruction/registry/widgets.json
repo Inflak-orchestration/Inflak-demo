@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "widgets": [
+    {
+      "id": "inpaint-region-editor",
+      "skill": "l3-pN4-inpaint-region-editor",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN4-inpaint-region-editor/SKILL.md",
+      "widget_type": "inpaint_region_editor",
+      "surface": "conversation_widget",
+      "interaction_modality": "direct_image_manipulation",
+      "supported_artifact_types": ["image"],
+      "interaction_goals": ["mark_region_and_describe_inpaint"],
+      "iai_edges": ["I→A", "I→Aug", "A→Aug"],
+      "gap_categories": ["inpaint_intent_gap", "artifact_region_gap"],
+      "state_update_targets": ["A", "Aug"],
+      "expected_return_types": ["mode", "image_ref", "regions", "mask_ref", "edit_prompt", "freeform_note", "edit_state"],
+      "widget_capabilities": ["select_inpaint_mode", "draw_normalized_boxes", "paint_brush_mask", "upload_transparent_mask", "edit_inpaint_prompt", "preserve_edit_state"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["artifact-inpaint"]
+    },
+    {
+      "id": "inpaint-image-compare",
+      "skill": "l3-pN4-inpaint-review",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN4-inpaint-review/SKILL.md",
+      "widget_type": "inpaint_image_compare",
+      "surface": "conversation_widget",
+      "interaction_modality": "image_comparison",
+      "supported_artifact_types": ["image"],
+      "interaction_goals": ["review_inpaint_candidate"],
+      "iai_edges": ["I→A", "I→Aug"],
+      "gap_categories": ["inpaint_acceptance_gap"],
+      "state_update_targets": ["A", "Aug"],
+      "expected_return_types": ["accepted_version", "revision_request", "freeform_note"],
+      "widget_capabilities": ["reveal_before_after_comparison", "accept_candidate_image", "retain_source_image", "request_inpaint_revision", "enter_revision_request"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["artifact-inpaint"]
+    }
+  ]
+}

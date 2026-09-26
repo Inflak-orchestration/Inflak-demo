@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0",
+  "widgets": [
+    {
+      "id": "daily-paper-conclusion-scope-setup",
+      "skill": "l3-daily-paper-conclusion-scope-setup",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-daily-paper-conclusion-scope-setup/SKILL.md",
+      "widget_type": "source_filter_panel",
+      "surface": "conversation_widget",
+      "interaction_modality": "filter_selection_and_approval",
+      "supported_artifact_types": [
+        "any"
+      ],
+      "interaction_goals": [
+        "structured_input"
+      ],
+      "iai_edges": [
+        "I→Aug"
+      ],
+      "gap_categories": [
+        "scope_setup_gap"
+      ],
+      "state_update_targets": [
+        "Aug"
+      ],
+      "return_mode": "schema",
+      "return_field_policy": "fixed",
+      "expected_return_types": [
+        "daily_scope",
+        "scope_decision",
+        "collection_readiness_status"
+      ],
+      "widget_capabilities": [
+        "show_primary_information",
+        "show_supporting_context",
+        "show_status",
+        "show_provenance",
+        "action_pick_date",
+        "action_set_paper_count",
+        "action_select_facets",
+        "action_approve_collection",
+        "action_revise_source",
+        "select",
+        "edit",
+        "approve"
+      ],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": [
+        "daily-paper-conclusion"
+      ]
+    },
+    {
+      "id": "daily-paper-conclusion-candidate-collection-review",
+      "skill": "l3-daily-paper-conclusion-candidate-collection-review",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-daily-paper-conclusion-candidate-collection-review/SKILL.md",
+      "widget_type": "collection_status_timeline",
+      "surface": "conversation_widget",
+      "interaction_modality": "stage_by_stage_collection_inspection",
+      "supported_artifact_types": [
+        "any"
+      ],
+      "interaction_goals": [
+        "progress_inspector"
+      ],
+      "iai_edges": [
+        "A→I"
+      ],
+      "gap_categories": [
+        "candidate_collection_review_gap"
+      ],
+      "state_update_targets": [
+        "I"
+      ],
+      "return_mode": "schema",
+      "return_field_policy": "fixed",
+      "expected_return_types": [
+        "candidate_decisions",
+        "collection_status",
+        "next_action"
+      ],
+      "widget_capabilities": [
+        "show_primary_information",
+        "show_supporting_context",
+        "show_status",
+        "show_provenance",
+        "action_expand_stage",
+        "action_retry",
+        "action_revise_scope",
+        "action_continue_partial",
+        "action_stop",
+        "select",
+        "approve",
+        "request_revision"
+      ],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": [
+        "daily-paper-conclusion"
+      ]
+    },
+    {
+      "id": "daily-paper-conclusion-paper-inspection-resolution",
+      "skill": "l3-daily-paper-conclusion-paper-inspection-resolution",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-daily-paper-conclusion-paper-inspection-resolution/SKILL.md",
+      "widget_type": "inspection_warning_dialogue",
+      "surface": "conversation_widget",
+      "interaction_modality": "resolve_inspection_warning_with_a_single_decision",
+      "supported_artifact_types": [
+        "any"
+      ],
+      "interaction_goals": [
+        "decision_review"
+      ],
+      "iai_edges": [
+        "I→Aug"
+      ],
+      "gap_categories": [
+        "paper_inspection_resolution_gap"
+      ],
+      "state_update_targets": [
+        "Aug"
+      ],
+      "return_mode": "schema",
+      "return_field_policy": "fixed",
+      "expected_return_types": [
+        "paper_decisions",
+        "inspection_warnings",
+        "next_action"
+      ],
+      "widget_capabilities": [
+        "show_primary_information",
+        "show_supporting_context",
+        "show_status",
+        "show_provenance",
+        "action_continue",
+        "action_exclude_affected",
+        "action_revise_scope",
+        "select",
+        "free_form_note"
+      ],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": [
+        "daily-paper-conclusion"
+      ]
+    },
+    {
+      "id": "daily-paper-conclusion-synthesis-direction-review",
+      "skill": "l3-daily-paper-conclusion-synthesis-direction-review",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-daily-paper-conclusion-synthesis-direction-review/SKILL.md",
+      "widget_type": "theme_evidence_matrix",
+      "surface": "conversation_widget",
+      "interaction_modality": "compare_themes_against_supporting_papers",
+      "supported_artifact_types": [
+        "any"
+      ],
+      "interaction_goals": [
+        "decision_review"
+      ],
+      "iai_edges": [
+        "I→Aug"
+      ],
+      "gap_categories": [
+        "synthesis_direction_review_gap"
+      ],
+      "state_update_targets": [
+        "Aug"
+      ],
+      "return_mode": "schema",
+      "return_field_policy": "fixed",
+      "expected_return_types": [
+        "approved_direction",
+        "theme_priorities",
+        "revision_request"
+      ],
+      "widget_capabilities": [
+        "show_primary_information",
+        "show_supporting_context",
+        "show_status",
+        "show_provenance",
+        "action_approve_direction",
+        "action_prioritize_theme",
+        "action_downgrade_claim",
+        "action_request_revision",
+        "action_return_to_inspection",
+        "select",
+        "compare",
+        "request_revision"
+      ],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": [
+        "daily-paper-conclusion"
+      ]
+    },
+    {
+      "id": "daily-paper-conclusion-digest-acceptance-review",
+      "skill": "l3-daily-paper-conclusion-digest-acceptance-review",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-daily-paper-conclusion-digest-acceptance-review/SKILL.md",
+      "widget_type": "evidence_linked_artifact_review",
+      "surface": "conversation_widget",
+      "interaction_modality": "review_artifact_with_provenance_and_revision_actions",
+      "supported_artifact_types": [
+        "any"
+      ],
+      "interaction_goals": [
+        "result_review"
+      ],
+      "iai_edges": [
+        "A→I"
+      ],
+      "gap_categories": [
+        "digest_acceptance_review_gap"
+      ],
+      "state_update_targets": [
+        "I"
+      ],
+      "return_mode": "schema",
+      "return_field_policy": "fixed",
+      "expected_return_types": [
+        "decision",
+        "revision_requests",
+        "accepted_digest"
+      ],
+      "widget_capabilities": [
+        "show_primary_information",
+        "show_supporting_context",
+        "show_status",
+        "show_provenance",
+        "action_accept",
+        "action_request_revision",
+        "action_compare_revision",
+        "action_copy",
+        "action_export",
+        "action_reopen_scope",
+        "approve",
+        "request_revision",
+        "compare",
+        "export"
+      ],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": [
+        "daily-paper-conclusion"
+      ]
+    }
+  ]
+}

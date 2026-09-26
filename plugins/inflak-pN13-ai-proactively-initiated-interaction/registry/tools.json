@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0",
+  "tools": [
+    {"id":"render_html_widget","callable":"render_html_widget","layer":"layer-4","category":"html_widget_renderer","description":"Render P13's conversational intention choices and adapted implementation widgets without executing the recommended action."}
+  ]
+}

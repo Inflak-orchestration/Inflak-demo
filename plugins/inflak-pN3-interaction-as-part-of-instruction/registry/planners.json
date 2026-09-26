@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "sketch-layout-image-generation",
+      "task_family": "sketch-grounded-image-generation",
+      "skill": "l2-pN3-sketch-layout-planner",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN3-sketch-layout-planner/SKILL.md",
+      "priority": 95,
+      "trigger_summary": "Use when a new image needs object placement or arrangement grounded by a user-drawn color-to-object sketch.",
+      "required_state": ["user_text"],
+      "optional_state": ["sketch_ref", "full_canvas_mask_ref", "sketch_semantics", "compiled_brief", "candidate_artifact", "prior_returns", "generation_state"],
+      "iai_edges": ["H→T", "H→I", "I→A", "T→Aug", "A→Aug", "Aug→G", "G→A", "I→Aug", "I→A"],
+      "gap_categories": ["layout_sketch_grounding_gap", "semantic_legend_gap", "sketch_confirmation_gap", "generation_acceptance_gap"],
+      "allowed_tools": ["edit_image"],
+      "loop_return_to": "l1-pN3-core-module",
+      "expected_outputs": ["sketch_guided_image_candidate", "accepted_image_artifact"]
+    }
+  ]
+}

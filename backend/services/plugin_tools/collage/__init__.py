@@ -1,0 +1,1 @@
+"""SVG collage inspection, composition, and document execution tools."""

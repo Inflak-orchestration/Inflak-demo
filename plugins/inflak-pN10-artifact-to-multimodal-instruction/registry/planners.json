@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "pN10-collage-instruction",
+      "skill": "l2-pN10-collage-instruction",
+      "execution_skill": "exec-pN10-svg-instruction",
+      "execution_skill_path": "skills/exec-pN10-svg-instruction/SKILL.md",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN10-collage-instruction/SKILL.md",
+      "task_family": "collage-multimodal-instruction-authoring",
+      "required_state": ["source_artifact_ref"],
+      "optional_state": ["artifact_scene", "artifact_analysis", "genai_suggestions", "suggestion_decisions", "active_object_id", "augmented_instruction", "review_state", "candidate_assets", "execution_state", "comparison_state", "prior_returns"],
+      "iai_edges": ["A→G", "G→I", "I→Aug", "A→Aug", "Aug→G", "G→A", "I→A"],
+      "gap_categories": ["instruction_target_gap", "instruction_relation_gap", "instruction_operation_gap", "suggestion_decision_gap", "augmentation_review_gap", "artifact_comparison_gap"],
+      "allowed_tools": ["manage_svg_document", "inspect_svg_scene", "apply_svg_presentation", "apply_svg_layout", "apply_svg_structure", "generate_image"],
+      "loop_return_to": "l1-pN10-core-module",
+      "trigger_summary": "Analyze an SVG artifact, generate object-grounded suggestions, collect anchored human decisions, then execute and validate the confirmed Augmented Instruction as an updated collage artifact without a user prompt input."
+    }
+  ]
+}

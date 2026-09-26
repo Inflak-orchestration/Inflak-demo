@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.1",
+  "authoring_reference_routes": [
+    {"id":"prepare_collage_visual_style","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","capabilities":["global_visual_style"],"provider_tools":["generate_image","restyle_image","adjust_image","apply_filter"],"widget_type":"collage_visual_style_control"},
+    {"id":"prepare_svg_element_variant","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","capabilities":["element_restyle","element_semantic_edit","element_outpaint","element_variation","element_background_treatment","element_geometric_variant","element_tonal_variant"],"provider_tools":["edit_image","restyle_image","outpaint_image","remove_background","generate_variations","transform_image","adjust_image","apply_filter"],"widget_type":"collage_asset_replacement_control"},
+    {"id":"generate_svg_element_from_prompt","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","capabilities":["new_element_generation"],"provider_tools":["generate_image","extract_collage_cutouts"],"widget_type":"collage_element_insert_control"},
+    {"id":"edit_native_svg_element_style","widget_id":"pN8-collage-element-style-control","capabilities":["element_vector_style"],"provider_tools":[],"widget_type":"collage_element_style_control"}
+  ],
+  "tools": [
+    {"id": "render_html_widget", "layer": "layer-4", "category": "html_widget_renderer", "description": "Render P8 object-bound controls in the Artifact Canvas inspector."},
+    {"id":"generate_image","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"authoring_preparation","used_by":["pN8-collage-control"],"description":"Generate a primary cutout, replacement candidate, or addable element before widget rendering."},
+    {"id":"edit_image","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"authoring_preparation","used_by":["pN8-collage-control"],"description":"Prepare a semantic element edit as a replacement candidate."},
+    {"id":"restyle_image","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"authoring_preparation","used_by":["pN8-collage-control"],"description":"Prepare an element-level or global-style raster variant."},
+    {"id":"outpaint_image","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"authoring_preparation","used_by":["pN8-collage-control"],"description":"Prepare an expanded element candidate before widget rendering."},
+    {"id":"remove_background","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"authoring_preparation","used_by":["pN8-collage-control"],"description":"Prepare a transparent-background candidate."},
+    {"id":"generate_variations","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"authoring_preparation","used_by":["pN8-collage-control"],"description":"Prepare one to three visual alternatives for an existing element."},
+    {"id":"transform_image","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"authoring_preparation","used_by":["pN8-collage-control"],"description":"Prepare a cropped, flipped, rotated, or resized raster candidate."},
+    {"id":"adjust_image","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"authoring_preparation","used_by":["pN8-collage-control"],"description":"Prepare a tonal or color-adjusted candidate."},
+    {"id":"apply_filter","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"authoring_preparation","used_by":["pN8-collage-control"],"description":"Prepare a filtered appearance candidate."},
+    {"id":"extract_collage_cutouts","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"authoring_preparation","used_by":["pN8-collage-control"],"description":"Prepare clean transparent cutouts from generated source images."},
+    {"id":"compose_svg_collage","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"svg_collage_composition","used_by":["pN8-collage-control"],"description":"Compile transparent assets and text into a self-contained layered SVG collage with stable object ids."},
+    {"id":"manage_svg_document","callable":"manage_svg_document","execution_reference":"skills/exec-pN8-collage-authoring/SKILL.md","layer":"session","category":"svg_document_lifecycle","required_parameters":["action","file_id"],"used_by":["pN8-collage-control"],"description":"Import, adopt, inspect, validate, or revision-patch a canonical SVG document after an instruction-ready P8 handoff."}
+  ]
+}

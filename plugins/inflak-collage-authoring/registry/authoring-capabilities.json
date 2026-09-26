@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "rule": "Layer 2 selects one capability; Layer 3 calls one declared preparation tool; its real result is bound before any selection widget; apply uses only typed SVG operations.",
+  "capabilities": [
+    {"id":"initial_object_generation","modes":["create"],"preparation_tools":["generate_image","extract_collage_cutouts"],"result_binding":"candidate_assets","apply_operations":["add_cutout"],"requires_transparency":true},
+    {"id":"global_visual_style","modes":["create","analyze","ground_prompt","refine"],"preparation_tools":["generate_image","restyle_image","adjust_image","apply_filter"],"result_binding":"authoring_bundle.visual_style_presets","apply_operations":["set_object_style","set_attributes","update_text","replace_cutout_asset"],"requires_transparency":true},
+    {"id":"semantic_asset_edit","modes":["create","analyze","ground_prompt","refine"],"preparation_tools":["edit_image"],"result_binding":"candidate_assets","apply_operations":["replace_cutout_asset"],"requires_transparency":true},
+    {"id":"asset_restyle","modes":["create","analyze","ground_prompt","refine"],"preparation_tools":["restyle_image"],"result_binding":"candidate_assets","apply_operations":["replace_cutout_asset"],"requires_transparency":true},
+    {"id":"asset_variation","modes":["create","analyze","ground_prompt","refine"],"preparation_tools":["generate_variations","outpaint_image","transform_image","adjust_image","apply_filter","remove_background"],"result_binding":"candidate_assets","apply_operations":["replace_cutout_asset"],"requires_transparency":true},
+    {"id":"presentation","modes":["create","analyze","ground_prompt","refine"],"preparation_tools":[],"result_binding":"pending_operations","apply_operations":["set_object_style","set_attributes","set_text","update_text"]},
+    {"id":"layout","modes":["create","analyze","ground_prompt","refine"],"preparation_tools":[],"result_binding":"pending_operations","apply_operations":["set_transform","set_order","set_dom_order"]},
+    {"id":"structure","modes":["create","analyze","ground_prompt","refine"],"preparation_tools":["generate_image","edit_image","restyle_image"],"result_binding":"pending_operations","apply_operations":["add_cutout","remove_object","remove_element","replace_cutout_asset","replace_asset"],"requires_transparency":true}
+  ]
+}

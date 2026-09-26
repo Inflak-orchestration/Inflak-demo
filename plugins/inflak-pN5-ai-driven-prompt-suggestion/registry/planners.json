@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "writing-brainstorm",
+      "task_family": "writing",
+      "skill": "l2-pN5-writing-brainstorm",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN5-writing-brainstorm/SKILL.md",
+      "priority": 90,
+      "trigger_summary": "Use when a writer wants to explore and extend a seed idea through distinct narrative directions, focus selected ideas into a prompt, then generate a written artifact.",
+      "trigger_keywords": [
+        "brainstorm",
+        "writing idea",
+        "narrative direction",
+        "story idea",
+        "article idea",
+        "script idea",
+        "节目",
+        "创作",
+        "写作灵感",
+        "发散",
+        "叙事方向",
+        "头脑风暴"
+      ],
+      "domain_scope": [
+        "writing brainstorm",
+        "narrative exploration",
+        "creative prompt development"
+      ],
+      "required_state": ["user_text"],
+      "optional_state": [
+        "seed_prompt",
+        "brainstorm_candidates",
+        "selected_directions",
+        "writing_constraints",
+        "confirmed_prompt",
+        "prior_returns",
+        "generated_artifact"
+      ],
+      "iai_edges": ["H→T", "T→G", "G→I", "I→T", "T→Aug", "Aug→G", "G→A"],
+      "gap_categories": [
+        "creative_seed_gap",
+        "divergence_gap",
+        "focus_gap",
+        "development_gap",
+        "prompt_confirmation_gap"
+      ],
+      "allowed_tools": [],
+      "loop_return_to": "l1-pN5-core-module",
+      "expected_outputs": ["confirmed_prompt", "generated_writing_artifact"]
+    }
+  ]
+}

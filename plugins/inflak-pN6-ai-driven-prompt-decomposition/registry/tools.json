@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "tools": [
+    {
+      "id": "render_html_widget",
+      "layer": "layer-4",
+      "category": "generated_widget_renderer",
+      "renderer_role": "primary",
+      "description": "Render P6's generated conversation prompt structure, cell map, or Story Brief widget; returns only after explicit submit or dismiss."
+    },
+    {
+      "id": "main_model_story_generation",
+      "layer": "layer-2",
+      "category": "no_tool_execution",
+      "renderer_role": "none",
+      "used_by": ["prompt-decomposition"],
+      "description": "Descriptive no-tool execution metadata, not a backend callable. L2 directly realizes its instruction_ready plan through the active main_model from the current explicitly approved Story Brief, without L3/L4, and returns actual story or failure to L1."
+    }
+  ]
+}

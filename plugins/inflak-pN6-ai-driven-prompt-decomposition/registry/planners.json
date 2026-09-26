@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "prompt-decomposition",
+      "task_family": "ai-driven-prompt-decomposition",
+      "skill": "l2-pN6-prompt-decomposition",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN6-prompt-decomposition/SKILL.md",
+      "priority": 95,
+      "trigger_summary": "Use when the user wants GenAI to decompose and organize a source prompt through editable, traceable components before generating a story.",
+      "trigger_keywords": [
+        "decompose prompt",
+        "expand prompt",
+        "organize prompt",
+        "improve prompt",
+        "prompt components",
+        "拆解提示词",
+        "扩展提示词",
+        "优化提示词",
+        "整理提示词"
+      ],
+      "domain_scope": [
+        "AI-driven prompt decomposition",
+        "interactive prompt organization",
+        "traceable prompt expansion"
+      ],
+      "required_state": ["user_text"],
+      "optional_state": ["source_prompts", "prompt_components", "prompt_structure", "augmented_instruction", "prior_returns", "generated_story"],
+      "iai_edges": ["H→T", "T→G", "G→I", "I→T", "I→Aug", "Aug→G", "G→A"],
+      "gap_categories": ["hierarchical_structure_gap", "topic_grouping_gap", "component_gap", "brief_review_gap"],
+      "allowed_tools": [],
+      "loop_return_to": "l1-pN6-core-module",
+      "expected_outputs": ["traceable_prompt_structure", "traceable_story_brief", "approved_story_instruction", "generated_story"]
+    }
+  ]
+}

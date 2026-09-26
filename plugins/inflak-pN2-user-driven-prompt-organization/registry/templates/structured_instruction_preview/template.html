@@ -1,0 +1,25 @@
+<div class="instruction-review" id="instruction-review-root">
+  <header class="review-header">
+    <div>
+      <p class="eyebrow">Generation checkpoint</p>
+      <h1>{{display.title}}</h1>
+      <p class="summary">{{display.summary}}</p>
+    </div>
+    <span class="mode">{{display.mode}}</span>
+  </header>
+
+  <section class="instruction-panel" aria-labelledby="instruction-title">
+    <div class="section-heading">
+      <h2 id="instruction-title">Structured instruction</h2>
+      <span>{{display.schema_version}}</span>
+    </div>
+    <pre id="compiled-instruction">{{display.compiled_instruction}}</pre>
+  </section>
+
+  <p class="provenance">{{display.provenance_note}}</p>
+
+  <footer class="actions">
+    <button class="secondary" id="revise" type="button">Back to structure</button>
+    <button class="primary" id="confirm" type="button">Confirm &amp; generate</button>
+  </footer>
+</div>

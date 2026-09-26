@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "image-prompt-refinement",
+      "task_family": "image-prompt",
+      "skill": "l2-pN1-image-prompt-refinement",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN1-image-prompt-refinement/SKILL.md",
+      "priority": 90,
+      "trigger_summary": "Use when the user wants to draft, iterate on, or refine an image-generation prompt by selecting prompt parts for GenAI to extend, steer, or restyle, then generate the image once the prompt is confirmed.",
+      "trigger_keywords": [
+        "image",
+        "prompt",
+        "refine prompt",
+        "iterate prompt",
+        "extend",
+        "steer",
+        "style",
+        "generate image",
+        "图",
+        "图片",
+        "提示词",
+        "改提示词",
+        "扩展",
+        "调整",
+        "风格",
+        "生成图"
+      ],
+      "domain_scope": [
+        "image prompt refinement",
+        "prompt iteration",
+        "text-to-image prompting"
+      ],
+      "required_state": [
+        "user_text"
+      ],
+      "optional_state": [
+        "prompt_draft",
+        "prior_returns",
+        "last_image"
+      ],
+      "iai_edges": [
+        "H→T",
+        "H→I",
+        "I→T",
+        "T→G",
+        "G→A"
+      ],
+      "gap_categories": [
+        "extend_object_gap",
+        "steer_object_gap",
+        "style_gap",
+        "prompt_confirmation_gap"
+      ],
+      "allowed_tools": [
+        "generate_image"
+      ],
+      "loop_return_to": "l1-pN1-core-module",
+      "expected_outputs": [
+        "refined_prompt",
+        "generated_image"
+      ]
+    }
+  ]
+}

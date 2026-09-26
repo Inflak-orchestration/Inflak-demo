@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "tools": [
+    {
+      "id": "render_html_widget",
+      "layer": "layer-4",
+      "category": "html_widget_renderer",
+      "description": "Renders P3's generated sandboxed sketch pad, confirmation, and comparison widgets."
+    },
+    {
+      "id": "edit_image",
+      "layer": "session",
+      "category": "sketch_guided_image_generation",
+      "provider": "azure_openai (default) or openai",
+      "used_by": ["sketch-layout-image-generation"],
+      "description": "Regenerates the full canvas from a confirmed brief using an actual color-to-object sketch and same-sized transparent mask. Registered in the session; L2 directly invokes it after instruction_ready without L3/L4 and returns every result or failure to L1."
+    }
+  ]
+}

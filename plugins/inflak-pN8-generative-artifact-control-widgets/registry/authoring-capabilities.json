@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "invariant": "Preparation tools run before widget rendering. Widget interaction applies only deterministic SVG operations and never invokes AI or image tools.",
+  "capabilities": [
+    {
+      "id": "global_visual_style",
+      "scope": "collage",
+      "execution_reference": "skills/exec-pN8-collage-authoring/SKILL.md",
+      "preparation_tools": ["generate_image", "restyle_image", "adjust_image", "apply_filter"],
+      "result_binding": "authoring_bundle.visual_style_presets",
+      "widget_type": "collage_visual_style_control",
+      "apply_operations": ["set_canvas_style", "update_text", "set_object_style", "replace_cutout_asset"]
+    },
+    {
+      "id": "element_vector_style",
+      "scope": "svg_object",
+      "widget_id": "pN8-collage-element-style-control",
+      "preparation_tools": [],
+      "result_binding": "collage_scene.objects.presentation",
+      "widget_type": "collage_element_style_control",
+      "apply_operations": ["set_object_style"]
+    },
+    {
+      "id": "element_restyle",
+      "scope": "cutout",
+      "execution_reference": "skills/exec-pN8-collage-authoring/SKILL.md",
+      "preparation_tools": ["restyle_image"],
+      "candidate_kind": "restyle",
+      "result_binding": "authoring_bundle.asset_candidates_by_object",
+      "widget_type": "collage_asset_replacement_control",
+      "apply_operations": ["replace_cutout_asset"]
+    },
+    {
+      "id": "element_semantic_edit",
+      "scope": "cutout",
+      "execution_reference": "skills/exec-pN8-collage-authoring/SKILL.md",
+      "preparation_tools": ["edit_image"],
+      "candidate_kind": "semantic_edit",
+      "result_binding": "authoring_bundle.asset_candidates_by_object",
+      "widget_type": "collage_asset_replacement_control",
+      "apply_operations": ["replace_cutout_asset"]
+    },
+    {
+      "id": "element_outpaint",
+      "scope": "cutout",
+      "execution_reference": "skills/exec-pN8-collage-authoring/SKILL.md",
+      "preparation_tools": ["outpaint_image"],
+      "candidate_kind": "outpaint",
+      "result_binding": "authoring_bundle.asset_candidates_by_object",
+      "widget_type": "collage_asset_replacement_control",
+      "apply_operations": ["replace_cutout_asset"]
+    },
+    {
+      "id": "element_variation",
+      "scope": "cutout",
+      "execution_reference": "skills/exec-pN8-collage-authoring/SKILL.md",
+      "preparation_tools": ["generate_variations"],
+      "candidate_kind": "variation",
+      "result_binding": "authoring_bundle.asset_candidates_by_object",
+      "widget_type": "collage_asset_replacement_control",
+      "apply_operations": ["replace_cutout_asset"]
+    },
+    {
+      "id": "element_background_treatment",
+      "scope": "cutout",
+      "execution_reference": "skills/exec-pN8-collage-authoring/SKILL.md",
+      "preparation_tools": ["remove_background"],
+      "candidate_kind": "background_treatment",
+      "result_binding": "authoring_bundle.asset_candidates_by_object",
+      "widget_type": "collage_asset_replacement_control",
+      "apply_operations": ["replace_cutout_asset"]
+    },
+    {
+      "id": "element_geometric_variant",
+      "scope": "cutout",
+      "execution_reference": "skills/exec-pN8-collage-authoring/SKILL.md",
+      "preparation_tools": ["transform_image"],
+      "candidate_kind": "transform",
+      "result_binding": "authoring_bundle.asset_candidates_by_object",
+      "widget_type": "collage_asset_replacement_control",
+      "apply_operations": ["replace_cutout_asset"]
+    },
+    {
+      "id": "element_tonal_variant",
+      "scope": "cutout",
+      "execution_reference": "skills/exec-pN8-collage-authoring/SKILL.md",
+      "preparation_tools": ["adjust_image", "apply_filter"],
+      "candidate_kind": "appearance",
+      "result_binding": "authoring_bundle.asset_candidates_by_object",
+      "widget_type": "collage_asset_replacement_control",
+      "apply_operations": ["replace_cutout_asset"]
+    },
+    {
+      "id": "new_element_generation",
+      "scope": "collage",
+      "execution_reference": "skills/exec-pN8-collage-authoring/SKILL.md",
+      "preparation_tools": ["generate_image", "extract_collage_cutouts"],
+      "candidate_kind": "new_element",
+      "result_binding": "authoring_bundle.addable_elements",
+      "widget_type": "collage_element_insert_control",
+      "apply_operations": ["add_cutout"]
+    },
+    {
+      "id": "element_remove",
+      "scope": "object",
+      "widget_id": "pN8-collage-object-actions-control",
+      "preparation_tools": [],
+      "result_binding": "collage_scene.objects",
+      "widget_type": "collage_object_actions_control",
+      "apply_operations": ["remove_object"]
+    },
+    {
+      "id": "text_authoring",
+      "scope": "text",
+      "widget_id": "pN8-collage-text-control",
+      "preparation_tools": [],
+      "result_binding": "authoring_bundle.text_authoring_options",
+      "widget_type": "collage_text_control",
+      "apply_operations": ["add_text", "update_text"]
+    },
+    {
+      "id": "layout_authoring",
+      "scope": "object",
+      "widget_id": "pN8-collage-transform-control",
+      "preparation_tools": [],
+      "result_binding": "collage_scene.objects",
+      "widget_type": "collage_transform_control",
+      "apply_operations": ["set_transform", "set_order"]
+    }
+  ]
+}

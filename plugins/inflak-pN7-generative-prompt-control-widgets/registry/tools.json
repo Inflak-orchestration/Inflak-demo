@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "tools": [
+    {
+      "id": "generate_image",
+      "layer": "session",
+      "category": "image_generation",
+      "description": "P7's only task tool, registered in the session. L2 directly invokes it after instruction_ready with the exact current accepted P7 prompt, without L3/L4, and returns every actual result or failure to L1."
+    },
+    {
+      "id": "render_html_widget",
+      "layer": "layer-4",
+      "category": "html_widget_renderer",
+      "renderer_role": "primary",
+      "description": "Render generated sandboxed HTML/CSS/JS for P7 semantic widget contracts and return structured values."
+    }
+  ]
+}

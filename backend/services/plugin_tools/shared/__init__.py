@@ -1,0 +1,1 @@
+"""Host tools and execution guards shared by all plugins."""

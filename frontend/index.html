@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InFlak Plugin Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css?v=20260920-favorites-folder" />
+    <link rel="stylesheet" href="/artifact-canvas.css?v=20260920-no-collage-flash" />
+  </head>
+  <body>
+    <div id="app" class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <img class="brand-logo" src="/assets/inflak-logo.png?v=20260818-horizontal" alt="InFlak" />
+        </div>
+        <button id="new-chat" class="new-chat" type="button">New chat</button>
+        <div class="sidebar-label">
+          <span>Sessions</span>
+          <span id="session-search-count" class="session-search-count" aria-live="polite"></span>
+        </div>
+        <div class="session-search" role="search">
+          <i data-lucide="search" aria-hidden="true"></i>
+          <input id="session-search" type="search" placeholder="Search sessions" aria-label="Search sessions" autocomplete="off" />
+          <button id="session-search-clear" class="session-search-clear hidden" type="button" aria-label="Clear session search" title="Clear session search">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div id="session-list" class="session-list"></div>
+      </aside>
+
+      <main class="chat">
+        <header class="topbar">
+          <div class="topbar-heading">
+            <button id="session-menu-button" class="session-menu-button" type="button" aria-label="Open sessions" aria-expanded="false">Sessions</button>
+            <div class="topbar-title">InFlak Workspace</div>
+            <div id="connection-status" class="status">Connecting</div>
+          </div>
+          <div class="controls">
+            <label class="model-label" for="model-select">Model</label>
+            <select id="model-select" class="model-select">
+              <option value="gpt-5.5">gpt-5.5</option>
+            </select>
+            <label class="model-label" for="plugin-select">Plugin</label>
+            <select id="plugin-select" class="model-select">
+              <option value="inflak-main">inflak Main</option>
+            </select>
+            <label class="approve-toggle">
+              <input id="approve-all" type="checkbox" checked />
+              Auto approve tools
+            </label>
+          </div>
+        </header>
+
+        <section id="messages" class="messages" aria-live="polite">
+          <div class="empty-state">
+            <div class="empty-state-kicker">InFlak Plugin Studio</div>
+            <h1>Collaborate with InFlak</h1>
+            <p>Interactive plugins for human-AI collaboration.</p>
+          </div>
+        </section>
+
+        <section id="artifact-canvas" class="hidden" aria-label="Artifact canvas">
+          <header class="artifact-canvas-head">
+            <div class="artifact-canvas-heading">
+              <span class="artifact-canvas-kicker" data-artifact-paradigm>P8</span>
+              <span class="artifact-canvas-title" data-artifact-title>Artifact canvas</span>
+            </div>
+            <div class="artifact-canvas-tools">
+              <button type="button" data-artifact-zoom-out aria-label="Zoom out" title="Zoom out">&minus;</button>
+              <span class="artifact-zoom-value" data-artifact-zoom>100%</span>
+              <button type="button" data-artifact-zoom-in aria-label="Zoom in" title="Zoom in">+</button>
+              <button type="button" data-artifact-reset title="Reset layout">Reset</button>
+              <button type="button" class="p10-analyze hidden" data-p10-analyze disabled><i data-lucide="sparkles" aria-hidden="true"></i><span>Analyze</span></button>
+              <button type="button" class="artifact-export" data-artifact-export aria-label="Export artifact" title="Export current SVG artifact" disabled><i data-lucide="download" aria-hidden="true"></i><span>Export artifact</span></button>
+              <button type="button" class="artifact-upload" data-artifact-upload aria-label="Upload artifact" title="Upload artifact"><i data-lucide="upload" aria-hidden="true"></i><span>Upload artifact</span></button>
+            </div>
+          </header>
+          <div class="artifact-stage" data-artifact-stage>
+            <div class="artifact-board" data-artifact-board></div>
+            <div class="artifact-empty" data-artifact-empty>
+              <strong>Bring an artifact into the canvas</strong>
+              <span>Drop an image or document here, or use Upload artifact. Existing session artifacts appear automatically.</span>
+            </div>
+          </div>
+          <input class="hidden" type="file" multiple data-artifact-input accept="image/*,image/svg+xml,.svg,text/plain,text/markdown,text/csv,application/json,application/pdf,.doc,.docx,.xls,.xlsx" />
+        </section>
+
+        <form id="composer" class="composer">
+          <div id="composer-attachments" class="composer-attachments hidden"></div>
+          <div class="composer-row">
+            <input id="file-input" type="file" multiple class="hidden" accept="image/*,image/svg+xml,.svg,text/plain,text/markdown,text/html,text/csv,application/json,application/pdf,.md,.html,.htm,.txt,.py,.json,.yaml,.yml,.pdf,.doc,.docx,.xls,.xlsx" />
+            <button id="attach-button" type="button" class="attach-button" aria-label="Attach files" title="Attach files"><i data-lucide="paperclip" aria-hidden="true"></i></button>
+            <textarea id="message-input" rows="1" placeholder="Message InFlak..." autocomplete="off"></textarea>
+            <button id="send-button" type="submit" class="send-button" aria-label="Send message" title="Send message"><i data-lucide="send" aria-hidden="true"></i></button>
+          </div>
+        </form>
+      </main>
+
+      <aside id="skill-debug-panel" class="debug-panel" aria-label="Skill invocation trace">
+        <div class="debug-panel-header">
+          <div>
+            <div class="debug-panel-title">Skill Trace</div>
+            <div class="debug-panel-subtitle"><span id="skill-trace-count">0</span> events</div>
+          </div>
+          <button id="skill-trace-clear" class="debug-clear" type="button">Clear</button>
+        </div>
+        <div id="skill-trace-list" class="skill-trace-list" aria-live="polite">
+          <div class="skill-trace-empty">No skill calls yet.</div>
+        </div>
+      </aside>
+    </div>
+
+    <div id="modal-backdrop" class="modal-backdrop hidden">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <h2 id="modal-title">Permission request</h2>
+        <p id="modal-description" class="modal-description"></p>
+        <pre id="modal-details" class="modal-details"></pre>
+        <div id="user-input-row" class="user-input-row hidden">
+          <input id="user-input-answer" type="text" placeholder="Your answer" />
+        </div>
+        <div class="modal-actions">
+          <button id="modal-reject" class="secondary" type="button">Reject</button>
+          <button id="modal-approve" class="primary" type="button">Approve once</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="image-preview" class="image-preview hidden" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button id="image-preview-close" class="image-preview-close" type="button" aria-label="Close image preview" title="Close image preview">
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+      <img id="image-preview-content" src="" alt="" />
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="/app.js?v=20260920-no-collage-flash-3" type="module"></script>
+  </body>
+</html>

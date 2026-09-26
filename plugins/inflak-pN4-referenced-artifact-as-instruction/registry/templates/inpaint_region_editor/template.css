@@ -1,0 +1,36 @@
+.ire { max-width: 760px; }
+.ire-mode { display: flex; gap: 8px; flex-wrap: wrap; }
+.ire-stage-wrap { display: flex; justify-content: center; }
+.ire-stage {
+  position: relative;
+  display: grid;
+  width: min(100%, 640px);
+  height: auto;
+  aspect-ratio: var(--ire-image-aspect, 16 / 9);
+  overflow: hidden;
+  border: 1px solid var(--iai-line);
+  border-radius: var(--iai-radius-sm);
+  background: var(--iai-surface-soft);
+  touch-action: none;
+}
+.ire-image { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: contain; user-select: none; -webkit-user-drag: none; }
+.ire-mask, .ire-box-layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ire-mask { z-index: 2; cursor: crosshair; touch-action: none; }
+.ire-box-layer { z-index: 3; pointer-events: none; }
+.ire-box { position: absolute; border: 2px solid var(--iai-accent); background: color-mix(in srgb, var(--iai-accent-soft) 65%, transparent); pointer-events: auto; cursor: grab; touch-action: none; }
+.ire-box-draft { pointer-events: none; border-style: dashed; background: color-mix(in srgb, var(--iai-accent-soft) 42%, transparent); }
+.ire-box.is-moving { cursor: grabbing; box-shadow: 0 0 0 2px var(--iai-surface), 0 0 0 4px var(--iai-accent); }
+.ire-box:focus-visible { outline: 2px solid var(--iai-accent); outline-offset: 3px; }
+.ire-box button { pointer-events: auto; position: absolute; top: -10px; right: -10px; width: 22px; height: 22px; padding: 0; border-radius: 50%; border-color: var(--iai-accent); color: var(--iai-accent-strong); background: var(--iai-surface); line-height: 1; }
+.ire-loading { position: absolute; z-index: 4; inset: 0; display: grid; place-items: center; color: var(--iai-muted); background: color-mix(in srgb, var(--iai-surface) 72%, transparent); pointer-events: none; }
+.ire-loading[hidden] { display: none; }
+.ire-help { margin: 0; color: var(--iai-muted); font-size: 13px; }
+.ire-brush-controls { display: flex; align-items: end; gap: 8px; flex-wrap: wrap; }
+.ire-brush-controls .iai-field { flex: 1 1 170px; }
+.ire-box-controls { display: flex; justify-content: flex-end; }
+.ire-error { margin: 0; color: var(--iai-danger); font-size: 13px; }
+.ire.is-brush .ire-stage { cursor: crosshair; }
+.ire.is-brush .ire-box-layer, .ire.is-brush .ire-box-controls { display: none; }
+.ire.is-brush .ire-mask { display: block !important; pointer-events: auto; }
+.ire:not(.is-brush) .ire-mask, .ire:not(.is-brush) .ire-brush-controls { display: none; }
+@media (max-width: 520px) { .ire-image { max-height: 280px; } .ire-brush-controls { align-items: stretch; } }

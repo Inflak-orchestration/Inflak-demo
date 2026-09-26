@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "tools": [
+    {
+      "id": "render_html_widget",
+      "layer": "layer-4",
+      "category": "html_widget_renderer",
+      "renderer_role": "primary",
+      "surface": "conversation_widget",
+      "description": "Render the selected semantic contract as HTML/CSS/JS in a sandboxed conversation iframe; return structured input with window.submitWidget(values)."
+    },
+    {
+      "id": "generate_image",
+      "layer": "session",
+      "category": "image_generation",
+      "renderer_role": "none",
+      "provider": "runtime_configured",
+      "model": "runtime_configured",
+      "used_by": [
+        "image-generation"
+      ],
+      "description": "Generate from the confirmed compiled prompt using the runtime-configured image model. L2 Planner directly invokes this session-registered tool on Execution Pathway; persist actual output and return real fileId/url references or failure directly to L1 Router."
+    },
+    {
+      "id": "edit_image",
+      "layer": "session",
+      "category": "image_editing",
+      "renderer_role": "none",
+      "provider": "runtime_configured",
+      "model": "runtime_configured",
+      "used_by": [
+        "image-edit",
+        "image-generation"
+      ],
+      "description": "Edit an actual source image with normalized regions or an uploaded source-size mask. Inpaint mask transparent pixels are editable and opaque pixels preserved. sketch-layout uses an actual sketch and full transparent mask with regions empty. Return actual output refs."
+    },
+    {
+      "id": "restyle_image",
+      "layer": "session",
+      "category": "image_editing",
+      "renderer_role": "none",
+      "provider": "runtime_configured",
+      "model": "runtime_configured",
+      "used_by": [
+        "image-edit"
+      ],
+      "description": "Generatively restyle an existing source image using approved direction and supported reference inputs. Preservation is a requested constraint, not a fidelity guarantee."
+    },
+    {
+      "id": "outpaint_image",
+      "layer": "session",
+      "category": "image_editing",
+      "renderer_role": "none",
+      "provider": "runtime_configured",
+      "model": "runtime_configured",
+      "used_by": [
+        "image-edit"
+      ],
+      "description": "Extend an actual source image in the approved direction and amount. Return real saved output references and actual dimensions."
+    },
+    {
+      "id": "remove_background",
+      "layer": "session",
+      "category": "image_editing",
+      "renderer_role": "none",
+      "provider": "runtime_configured",
+      "model": "runtime_configured",
+      "used_by": [
+        "image-edit"
+      ],
+      "description": "Whole-image background removal with the actual runtime capability and explicit fidelity limits; do not promise deterministic pixel preservation from a generative implementation."
+    },
+    {
+      "id": "replace_background",
+      "layer": "session",
+      "category": "image_editing",
+      "renderer_role": "none",
+      "provider": "runtime_configured",
+      "model": "runtime_configured",
+      "used_by": [
+        "image-edit"
+      ],
+      "description": "Replace an image background from an approved prompt while requesting foreground preservation. Return actual outputs, not simulated previews."
+    },
+    {
+      "id": "generate_variations",
+      "layer": "session",
+      "category": "image_generation",
+      "renderer_role": "none",
+      "provider": "runtime_configured",
+      "model": "runtime_configured",
+      "used_by": [
+        "image-edit"
+      ],
+      "description": "Generate a supported count of alternatives from an existing image; return only real saved candidate refs and report partial failures."
+    },
+    {
+      "id": "transform_image",
+      "layer": "session",
+      "category": "image_processing_local",
+      "renderer_role": "none",
+      "provider": "pillow",
+      "model": "none",
+      "used_by": [
+        "image-edit"
+      ],
+      "description": "Deterministic crop, resize, rotate/straighten or flip of an actual source image with explicit geometry. No generative model call."
+    },
+    {
+      "id": "adjust_image",
+      "layer": "session",
+      "category": "image_processing_local",
+      "renderer_role": "none",
+      "provider": "pillow",
+      "model": "none",
+      "used_by": [
+        "image-edit"
+      ],
+      "description": "Deterministic brightness, contrast, saturation, sharpness, temperature and gamma adjustments using supported parameters."
+    },
+    {
+      "id": "apply_filter",
+      "layer": "session",
+      "category": "image_processing_local",
+      "renderer_role": "none",
+      "provider": "pillow",
+      "model": "none",
+      "used_by": [
+        "image-edit"
+      ],
+      "description": "Deterministic supported photo filters such as grayscale, sepia, invert, blur, sharpen or vignette."
+    }
+  ]
+}

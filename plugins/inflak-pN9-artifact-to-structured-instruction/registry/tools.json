@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "tools": [
+    {
+      "id": "render_html_widget",
+      "layer": "layer-4",
+      "category": "html_widget_renderer",
+      "description": "Renders P9's analysis selection, report composition, and report review widgets."
+    }
+  ]
+}

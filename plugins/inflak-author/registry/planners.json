@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "inflak-authoring",
+      "skill": "l2-inflak-authoring-planner",
+      "execution_skill": "exec-plugin-authoring",
+      "execution_skill_path": "skills/exec-plugin-authoring/SKILL.md",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-inflak-authoring-planner/SKILL.md",
+      "task_family": "plugin-authoring",
+      "required_state": ["user_text", "conversation_context", "revision", "question_count"],
+      "optional_state": ["attachment_refs", "authoring_id", "authoring_phase", "intent_brief", "task_frame", "task_frame_decision", "workflow_design", "workflow_stage_order", "active_stage_id", "workflow_stage_decisions", "artifact_model", "artifact_model_decision", "state_model", "interaction_inventory", "active_interaction_id", "widget_designs", "experience_blueprint", "validation_cases", "phase_history", "assumptions", "execution_resources", "blueprint_approval", "target_spec", "preview_result", "build_approval", "publish_result", "scenario_validation", "failed_scenario_handoff", "prior_returns"],
+      "iai_edges": ["H→T", "T→G", "G→I", "I→Aug", "I→A", "A→G", "Aug→G", "G→A"],
+      "gap_categories": ["task_framing_gap", "workflow_substep_gap", "artifact_flow_gap", "widget_design_gap", "experience_definition_gap", "execution_dependency_gap", "experience_review_gap", "build_review_gap"],
+      "allowed_tools": ["inspect_inflak_authoring_resources", "preview_inflak_plugin", "publish_inflak_plugin"],
+      "loop_return_to": "l1-inflak-author-core",
+      "trigger_summary": "Conversationally design and publish a new inflak plugin while hiding implementation vocabulary from the author."
+    }
+  ]
+}

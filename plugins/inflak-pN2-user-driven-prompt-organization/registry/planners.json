@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "visual-story-composition",
+      "task_family": "interactive-prompt-organization",
+      "skill": "l2-pN2-visual-story-composition",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN2-visual-story-composition/SKILL.md",
+      "priority": 95,
+      "trigger_summary": "Use when a user organizes their own visual instruction into traceable, editable prompt units before generation.",
+      "required_state": ["user_text", "source_text", "schema_version"],
+      "optional_state": ["prompt_structure", "structure_submitted", "compiled_instruction", "instruction_preview_status", "generated_artifacts", "prior_returns"],
+      "iai_edges": ["H→I", "H→T", "I→T", "T→Aug", "Aug→G", "G→A"],
+      "gap_categories": ["prompt_structure_entry_gap", "prompt_source_gap", "prompt_structure_gap", "prompt_confirmation_gap", "instruction_preview_gap"],
+      "allowed_tools": ["generate_image"],
+      "loop_return_to": "l1-pN2-core-module",
+      "expected_outputs": ["confirmed_prompt_structure", "compiled_visual_instruction", "generated_image_or_storyboard"]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+<form class="ire iai-widget" novalidate data-ire-edit-state="{{display.edit_state_json}}">
+  <header>
+    <h1 class="iai-title">{{display.title}}</h1>
+    {{#display.summary}}<p class="iai-summary">{{display.summary}}</p>{{/display.summary}}
+  </header>
+
+  <div class="ire-mode" role="radiogroup" aria-label="Selection mode">
+    <button type="button" class="iai-chip selected" data-ire-mode="box" aria-pressed="true">Box</button>
+    <button type="button" class="iai-chip" data-ire-mode="brush" aria-pressed="false">Brush</button>
+  </div>
+
+  <div class="ire-stage-wrap">
+    <div class="ire-stage" aria-label="Image editing area">
+      <img class="ire-image" alt="Source image to edit" />
+      <canvas class="ire-mask" hidden></canvas>
+      <div class="ire-box-layer" aria-hidden="true"></div>
+      <div class="ire-loading">Loading image...</div>
+    </div>
+  </div>
+  <p class="ire-help" data-ire-help>Drag on the image to add a box, or drag an existing box to move it.</p>
+  <div class="ire-brush-controls" hidden>
+    <label class="iai-field"><span class="iai-label">Brush size</span><input data-ire-brush-size type="range" min="8" max="160" value="42" /></label>
+    <button type="button" class="iai-btn iai-btn-secondary" data-ire-eraser aria-pressed="false">Eraser</button>
+    <button type="button" class="iai-btn iai-btn-ghost" data-ire-undo disabled>Undo stroke</button>
+    <button type="button" class="iai-btn iai-btn-ghost" data-ire-clear>Clear strokes</button>
+  </div>
+  <div class="ire-box-controls">
+    <button type="button" class="iai-btn iai-btn-ghost" data-ire-clear-boxes>Clear boxes</button>
+  </div>
+
+  <label class="iai-field">
+    <span class="iai-label">What should appear in the selected area?</span>
+    <textarea data-ire-prompt rows="3" required placeholder="For example: add a pearl necklace that follows the subject's neckline.">{{display.suggested_prompt}}</textarea>
+  </label>
+  <label class="iai-field">
+    <span class="iai-label">Note (optional)</span>
+    <textarea data-ire-note rows="2"></textarea>
+  </label>
+  <p class="ire-error" data-ire-error role="alert" hidden></p>
+
+  <footer class="iai-actions">
+    <button type="button" class="iai-btn iai-btn-ghost" data-ire-dismiss>Cancel</button>
+    <button type="submit" class="iai-btn iai-btn-primary" data-ire-submit>Generate inpaint</button>
+  </footer>
+</form>

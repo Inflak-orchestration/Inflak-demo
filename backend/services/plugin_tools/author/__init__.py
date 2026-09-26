@@ -1,0 +1,1 @@
+"""Inflak Author compilation, publication, and plugin scenario validation."""

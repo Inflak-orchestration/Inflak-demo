@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "planners": [{
+    "id": "artifact-inpaint",
+    "task_family": "image-inpaint",
+    "skill": "l2-pN4-artifact-inpaint",
+    "layer": "layer-2",
+    "canonical_skill_path": "skills/l2-pN4-artifact-inpaint/SKILL.md",
+    "priority": 95,
+    "trigger_summary": "Use when the user wants to add, remove, replace, repair, or repaint a selected local area of an existing image artifact.",
+    "required_state": ["user_text"],
+    "optional_state": ["source_artifact", "candidate_artifact", "prior_returns", "inpaint_state"],
+    "iai_edges": ["H→I", "I→A", "H→T", "A→Aug", "Aug→G", "G→A", "I→Aug"],
+    "gap_categories": ["inpaint_intent_gap", "artifact_region_gap", "inpaint_acceptance_gap"],
+    "allowed_tools": ["edit_image"],
+    "loop_return_to": "l1-pN4-core-module",
+    "expected_outputs": ["inpaint_candidate", "accepted_image_artifact"]
+  }]
+}

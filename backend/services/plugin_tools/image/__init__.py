@@ -1,0 +1,1 @@
+"""Image execution tools and plugin-specific asset persistence."""

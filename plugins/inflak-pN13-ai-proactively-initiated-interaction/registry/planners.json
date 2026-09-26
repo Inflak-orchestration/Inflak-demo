@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "pN13-proactive-intent-recommendation",
+      "skill": "l2-pN13-proactive-image-edit",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN13-proactive-image-edit/SKILL.md",
+      "task_family": "proactive-intent-recommendation",
+      "required_state": ["user_text", "conversation_context", "task_context"],
+      "optional_state": ["explicit_observations", "intent_hypotheses", "recommendations", "active_recommendation_id", "disambiguation", "user_decision", "selected_recommendation", "implementation_widget_return", "execution_status", "execution_result", "prior_returns"],
+      "iai_edges": ["H→T", "H→I", "T→G", "A→G", "G→I", "I→A", "I→Aug", "A→Aug", "Aug→G", "G→A"],
+      "gap_categories": ["intent_disambiguation_gap", "intention_presentation_gap", "implementation_interaction_gap"],
+      "allowed_tools": [],
+      "loop_return_to": "l1-pN13-core-module",
+      "trigger_summary": "Infer generic user intent, present conversational alternatives, resolve material implementation input and execute the confirmed recommendation through the active main model."
+    }
+  ]
+}

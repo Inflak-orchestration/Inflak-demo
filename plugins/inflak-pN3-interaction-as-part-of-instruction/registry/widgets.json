@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "widgets": [
+    {
+      "id": "semantic-sketch-pad",
+      "skill": "l3-pN3-semantic-sketch-pad",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN3-semantic-sketch-pad/SKILL.md",
+      "widget_type": "semantic_sketch_pad",
+      "surface": "conversation_widget",
+      "interaction_modality": "color_to_object_freehand_sketch",
+      "supported_artifact_types": ["image-description", "idea"],
+      "interaction_goals": ["ground_image_layout_in_object_sketch", "complete_color_object_legend"],
+      "iai_edges": ["H→I", "I→A", "I→Aug", "A→Aug"],
+      "gap_categories": ["layout_sketch_grounding_gap", "semantic_legend_gap"],
+      "state_update_targets": ["A", "Aug"],
+      "expected_return_types": ["sketch_ref", "full_canvas_mask_ref", "strokes", "canvas", "color_semantics", "freeform_note"],
+      "widget_capabilities": ["draw_object_strokes", "erase_object_strokes", "undo_redo_strokes", "clear_sketch_canvas", "set_brush_width", "assign_color_object_labels", "upload_sketch_png", "validate_labeled_colors"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["sketch-layout-image-generation"]
+    },
+    {
+      "id": "sketch-layout-confirmation",
+      "skill": "l3-pN3-semantic-sketch-pad",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN3-semantic-sketch-pad/SKILL.md",
+      "widget_type": "sketch_layout_confirmation",
+      "surface": "conversation_widget",
+      "interaction_modality": "brief_confirmation",
+      "supported_artifact_types": ["image-description"],
+      "interaction_goals": ["confirm_sketch_layout_brief"],
+      "iai_edges": ["I→Aug"],
+      "gap_categories": ["sketch_confirmation_gap"],
+      "state_update_targets": ["Aug"],
+      "expected_return_types": ["decision", "revision_request", "freeform_note"],
+      "widget_capabilities": ["review_sketch_layout_brief", "confirm_sketch_layout_brief", "request_layout_revision", "enter_revision_request"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["sketch-layout-image-generation"]
+    },
+    {
+      "id": "sketch-layout-image-compare",
+      "skill": "l3-pN3-image-review",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN3-image-review/SKILL.md",
+      "widget_type": "sketch_layout_image_compare",
+      "surface": "conversation_widget",
+      "interaction_modality": "image_comparison",
+      "supported_artifact_types": ["image"],
+      "interaction_goals": ["review_sketch_guided_image_candidate"],
+      "iai_edges": ["I→A", "I→Aug"],
+      "gap_categories": ["generation_acceptance_gap"],
+      "state_update_targets": ["A", "Aug"],
+      "expected_return_types": ["accepted_version", "revision_request", "freeform_note"],
+      "widget_capabilities": ["compare_sketch_and_candidate", "select_accepted_version", "retain_prior_artifact", "request_layout_revision", "enter_revision_request"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["sketch-layout-image-generation"]
+    }
+  ]
+}

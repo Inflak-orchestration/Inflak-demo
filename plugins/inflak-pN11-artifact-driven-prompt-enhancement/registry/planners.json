@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "pN11-svg-prompt-enhancement",
+      "skill": "l2-pN11-svg-prompt-enhancement",
+      "execution_skill": "exec-pN11-prompt-refinement",
+      "execution_skill_path": "skills/exec-pN11-prompt-refinement/SKILL.md",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN11-svg-prompt-enhancement/SKILL.md",
+      "task_family": "svg-prompt-enhancement",
+      "required_state": ["source_prompt", "source_artifact_ref"],
+      "optional_state": ["artifact_scene", "artifact_analysis", "prompt_units", "object_bindings", "reference_resolutions", "action_refinements", "active_object_id", "augmented_prompt", "review_state", "candidate_assets", "execution_state", "prior_returns"],
+      "iai_edges": ["H→T", "T→G", "A→G", "G→I", "I→Aug", "T→Aug", "Aug→G", "G→A"],
+      "gap_categories": ["prompt_artifact_alignment_gap", "prompt_missing_target_gap", "prompt_action_specificity_gap"],
+      "allowed_tools": ["manage_svg_document", "inspect_svg_scene", "apply_svg_presentation", "apply_svg_layout", "apply_svg_structure", "generate_image"],
+      "loop_return_to": "l1-pN11-core-module",
+      "trigger_summary": "Ground an existing user prompt in a stable SVG artifact, resolve ambiguous targets and actions, then execute and validate the confirmed enhanced prompt as a revised artifact."
+    }
+  ]
+}

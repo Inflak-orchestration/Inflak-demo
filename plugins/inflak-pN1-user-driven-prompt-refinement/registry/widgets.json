@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "widgets": [
+    {
+      "id": "prompt-keyword-grid",
+      "skill": "l3-pN1-prompt-keyword-grid",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN1-prompt-keyword-grid/SKILL.md",
+      "widget_type": "prompt_keyword_grid",
+      "surface": "conversation_widget",
+      "interaction_modality": "multi_select_grid",
+      "supported_artifact_types": [
+        "image-prompt",
+        "text"
+      ],
+      "interaction_goals": [
+        "refine_prompt_keywords",
+        "select_keywords_to_extend_object",
+        "select_keywords_to_steer_object",
+        "select_keywords_for_style"
+      ],
+      "iai_edges": [
+        "I→T"
+      ],
+      "gap_categories": [
+        "extend_object_gap",
+        "steer_object_gap",
+        "style_gap"
+      ],
+      "state_update_targets": [
+        "T"
+      ],
+      "expected_return_types": [
+        "selected_keywords",
+        "custom_keywords",
+        "freeform_note"
+      ],
+      "widget_capabilities": [
+        "select_keyword_cells",
+        "add_per_dimension_custom_keyword",
+        "apply_keyword_selection"
+      ],
+      "primary_renderer": "render_html_widget",
+      "fallback_renderer": "render_interactive_widget",
+      "compatible_planners": [
+        "image-prompt-refinement"
+      ]
+    },
+    {
+      "id": "prompt-review",
+      "skill": "l3-pN1-prompt-review",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN1-prompt-review/SKILL.md",
+      "widget_type": "prompt_review",
+      "surface": "conversation_widget",
+      "interaction_modality": "select",
+      "supported_artifact_types": [
+        "image-prompt",
+        "text"
+      ],
+      "interaction_goals": [
+        "confirm_prompt"
+      ],
+      "iai_edges": [
+        "I→T"
+      ],
+      "gap_categories": [
+        "prompt_confirmation_gap"
+      ],
+      "state_update_targets": [
+        "T"
+      ],
+      "expected_return_types": [
+        "action",
+        "edited_prompt",
+        "freeform_note"
+      ],
+      "widget_capabilities": [
+        "select_review_action",
+        "edit_prompt_text",
+        "accept_prompt",
+        "request_refinement_round"
+      ],
+      "primary_renderer": "render_html_widget",
+      "fallback_renderer": "render_interactive_widget",
+      "compatible_planners": [
+        "image-prompt-refinement"
+      ]
+    }
+  ]
+}

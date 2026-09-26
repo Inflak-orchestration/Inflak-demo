@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "widgets": [
+    {
+      "id": "narrative-direction-cards",
+      "skill": "l3-pN5-narrative-direction-cards",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN5-narrative-direction-cards/SKILL.md",
+      "widget_type": "narrative_direction_cards",
+      "surface": "conversation_widget",
+      "interaction_modality": "comparative_card_selection",
+      "supported_artifact_types": ["text", "writing-prompt"],
+      "interaction_goals": ["compare_narrative_directions", "select_or_combine_narrative_directions"],
+      "iai_edges": ["G→I", "I→T"],
+      "gap_categories": ["divergence_gap", "focus_gap"],
+      "state_update_targets": ["selected_directions"],
+      "expected_return_types": ["primary_direction_id", "supporting_direction_ids", "rejected_direction_ids", "action", "freeform_note"],
+      "widget_capabilities": ["select_primary_direction", "select_supporting_directions", "mark_rejected_directions", "request_more_ideas", "submit_direction_note"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["writing-brainstorm"]
+    },
+    {
+      "id": "prompt-constellation",
+      "skill": "l3-pN5-prompt-constellation",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN5-prompt-constellation/SKILL.md",
+      "widget_type": "prompt_constellation",
+      "surface": "conversation_widget",
+      "interaction_modality": "grouped_chip_selection_and_prompt_editing",
+      "supported_artifact_types": ["text", "writing-prompt"],
+      "interaction_goals": ["collect_writing_seed", "focus_writing_prompt", "confirm_writing_prompt"],
+      "iai_edges": ["H→T", "I→T"],
+      "gap_categories": ["creative_seed_gap", "development_gap", "prompt_confirmation_gap"],
+      "state_update_targets": ["writing_constraints", "confirmed_prompt"],
+      "expected_return_types": ["selected_facets", "custom_facets", "prompt_edits", "action", "freeform_note"],
+      "widget_capabilities": ["select_facet_chips", "add_custom_facets", "edit_prompt_preview", "confirm_writing_prompt", "return_to_directions"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["writing-brainstorm"]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "2.0",
+  "planners": [
+    {
+      "id": "writing-draft",
+      "task_family": "writing",
+      "layer": "layer-2",
+      "skill": "l2-writing-draft",
+      "canonical_skill_path": "skills/l2-writing-draft/SKILL.md",
+      "priority": 80,
+      "trigger_summary": "Create new writing; derive any material interaction gap from current intent and IAI information flow, or plan a justified draft.",
+      "required_state": ["user_text"],
+      "optional_state": ["writing_settings", "topic_keywords", "generated_draft", "prior_returns"],
+      "iai_edges": ["H→T", "H→I", "T→Aug", "I→T", "I→Aug", "Aug→G", "G→A"],
+      "gap_categories": ["writing_settings_gap", "writing_topic_keyword_gap"],
+      "allowed_tools": [],
+      "loop_return_to": "l1-router"
+    },
+    {
+      "id": "writing-revision",
+      "task_family": "writing",
+      "layer": "layer-2",
+      "skill": "l2-writing-revision",
+      "canonical_skill_path": "skills/l2-writing-revision/SKILL.md",
+      "priority": 90,
+      "trigger_summary": "Revise existing writing directly or derive a material constraint, direction, or requested comparison decision from current IAI state.",
+      "required_state": ["user_text", "artifact"],
+      "optional_state": ["revision_settings", "revision_direction", "revision_candidates", "selected_candidate_id", "prior_returns"],
+      "iai_edges": ["H→T", "H→I", "T→Aug", "A→Aug", "I→Aug", "Aug→G", "G→I", "I→A", "G→A"],
+      "gap_categories": ["revision_settings_gap", "revision_direction_gap", "revision_candidate_gap"],
+      "allowed_tools": [],
+      "loop_return_to": "l1-router"
+    },
+    {
+      "id": "prompt-enhancement",
+      "task_family": "prompt",
+      "layer": "layer-2",
+      "skill": "l2-prompt-enhancement",
+      "canonical_skill_path": "skills/l2-prompt-enhancement/SKILL.md",
+      "priority": 85,
+      "trigger_summary": "Produce an enhanced prompt; derive any material content or relationship decision from current IAI state without mandatory editing stages.",
+      "required_state": ["user_text"],
+      "optional_state": ["source_prompt", "prompt_content", "prompt_structure", "enhanced_prompt", "prior_returns"],
+      "iai_edges": ["H→T", "H→I", "I→T", "T→Aug", "I→Aug", "Aug→G", "G→A"],
+      "gap_categories": ["prompt_content_gap", "prompt_structure_gap"],
+      "allowed_tools": [],
+      "loop_return_to": "l1-router"
+    },
+    {
+      "id": "image-generation",
+      "task_family": "image",
+      "layer": "layer-2",
+      "skill": "l2-image-generation",
+      "canonical_skill_path": "skills/l2-image-generation/SKILL.md",
+      "priority": 80,
+      "trigger_summary": "Create a new image; derive any material constraint, visual-language or spatial-representation gap from current IAI state.",
+      "required_state": ["user_text"],
+      "optional_state": ["image_settings", "image_keywords", "image_layout", "generated_image", "prior_returns"],
+      "iai_edges": ["H→T", "H→I", "T→Aug", "I→T", "I→Aug", "I→A", "A→Aug", "Aug→G", "G→A"],
+      "gap_categories": ["image_settings_gap", "image_keyword_gap", "image_layout_gap"],
+      "allowed_tools": ["generate_image", "edit_image"],
+      "loop_return_to": "l1-router"
+    },
+    {
+      "id": "image-edit",
+      "task_family": "image",
+      "layer": "layer-2",
+      "skill": "l2-image-edit",
+      "canonical_skill_path": "skills/l2-image-edit/SKILL.md",
+      "priority": 90,
+      "trigger_summary": "Edit an existing image through intent refinement, style transfer, inpainting, or deterministic adjustment.",
+      "required_state": ["user_text", "artifact"],
+      "optional_state": ["edit_settings", "edit_direction", "mask_ref", "edited_image", "prior_returns"],
+      "iai_edges": ["H→T", "H→I", "T→Aug", "A→Aug", "I→Aug", "I→A", "Aug→G", "G→A"],
+      "gap_categories": ["edit_settings_gap", "edit_direction_gap", "edit_region_gap", "edit_parameter_gap"],
+      "allowed_tools": ["edit_image", "restyle_image", "outpaint_image", "remove_background", "replace_background", "generate_variations", "transform_image", "adjust_image", "apply_filter"],
+      "loop_return_to": "l1-router"
+    }
+  ]
+}

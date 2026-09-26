@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "pN12-interactive-svg-refinement",
+      "skill": "l2-pN12-interactive-svg-refinement",
+      "execution_skill": "exec-pN12-artifact-refinement",
+      "execution_skill_path": "skills/exec-pN12-artifact-refinement/SKILL.md",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN12-interactive-svg-refinement/SKILL.md",
+      "task_family": "interactive-svg-refinement",
+      "required_state": ["source_prompt", "source_artifact_ref"],
+      "optional_state": ["artifact_scene", "artifact_analysis", "interaction_specs", "active_interaction_id", "preview_state", "refinement_candidates", "candidate_assets", "interaction_returns", "active_object_ids", "patch_state", "revision_history", "comparison_state", "acceptance_state", "prior_returns"],
+      "iai_edges": ["T→G", "A→G", "G→I", "G→A", "I→A"],
+      "gap_categories": ["interaction_execution_gap", "artifact_comparison_gap", "artifact_acceptance_gap"],
+      "allowed_tools": ["manage_svg_document", "inspect_svg_scene", "apply_svg_presentation", "apply_svg_layout", "apply_svg_structure", "generate_image"],
+      "loop_return_to": "l1-pN12-core-module",
+      "trigger_summary": "Jointly analyze one prompt and SVG, synthesize a capability-compatible artifact-grounded interaction with a reversible preview, and commit only the user's applied result as a new revision."
+    }
+  ]
+}

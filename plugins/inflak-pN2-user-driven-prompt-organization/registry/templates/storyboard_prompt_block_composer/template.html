@@ -1,0 +1,68 @@
+<div class="composer" id="composer-root"
+  data-source-text="{{display.source_text_json}}"
+  data-prompt-structure="{{display.prompt_structure_json}}"
+  data-errors="{{display.validation_errors_json}}">
+  <header class="composer-header">
+    <div>
+      <p class="eyebrow">Input-grounded prompt structure</p>
+      <h1>{{display.title}}</h1>
+      <p class="summary">{{display.summary}}</p>
+    </div>
+    <span class="version">{{display.schema_version}}</span>
+  </header>
+
+  <div class="server-errors" id="server-errors" role="alert"></div>
+
+  <div class="mode-bar" aria-label="Output structure">
+    <span class="mode-label">Structure</span>
+    <div class="segmented" id="mode-control">
+      <button type="button" data-mode="single_image">Single image</button>
+      <button type="button" data-mode="multi_scene">Multi-scene</button>
+    </div>
+    <span class="mode-help" id="mode-help"></span>
+  </div>
+
+  <div class="workspace">
+    <section class="source-panel" aria-labelledby="source-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="source-title">Source input</h2>
+          <span>Your wording remains the source of truth</span>
+        </div>
+        <button class="secondary compact" id="resegment" type="button">Rebuild units</button>
+      </div>
+      <textarea id="source-input" rows="10" placeholder="Type or paste the visual instruction to organize"></textarea>
+      <div class="source-note" id="source-note"></div>
+      <div class="source-highlight" id="source-highlight" aria-live="polite"></div>
+    </section>
+
+    <section class="structure-panel" aria-labelledby="structure-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="structure-title">Structured view</h2>
+          <span>Review, edit, group, and order your content</span>
+        </div>
+        <button class="icon-button" id="add-group" type="button" title="Add group" aria-label="Add group">+</button>
+      </div>
+      <div class="groups" id="groups" role="tree" aria-label="Prompt structure groups"></div>
+    </section>
+  </div>
+
+  <section class="preview" aria-labelledby="preview-title">
+    <div class="section-heading">
+      <div>
+        <h2 id="preview-title">Instruction preview</h2>
+        <span>Only active units will be compiled</span>
+      </div>
+      <span id="completion-status"></span>
+    </div>
+    <div id="preview-content"></div>
+  </section>
+
+  <div class="local-errors" id="local-errors" role="alert"></div>
+  <footer class="actions">
+    <button class="secondary" id="dismiss" type="button">Cancel</button>
+    <button class="secondary" id="save-draft" type="button">Save draft</button>
+    <button class="primary" id="confirm" type="button">Review instruction</button>
+  </footer>
+</div>

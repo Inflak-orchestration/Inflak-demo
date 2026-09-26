@@ -1,0 +1,1 @@
+"""Structured report and chart execution support for plugins."""

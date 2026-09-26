@@ -1,0 +1,15 @@
+{
+  "widget_type": "inpaint_region_editor",
+  "height": 690,
+  "execution_mode": "isolated_iframe",
+  "expected_return": {
+    "mode": "box|brush",
+    "image_ref": {},
+    "regions": [],
+    "mask_ref": {},
+    "edit_prompt": "",
+    "freeform_note": "",
+    "edit_state": {}
+  },
+  "notes": "Local inpaint editor with normalized rectangular selections or an uploaded transparent-pixel PNG brush mask."
+}

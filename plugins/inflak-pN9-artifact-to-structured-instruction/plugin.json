@@ -1,0 +1,6 @@
+{
+  "name": "inflak-pn9-artifact-to-structured-instruction",
+  "description": "Artifact-grounded chart analysis planning and Host Agent report generation.",
+  "version": "1.0.0",
+  "skills": "skills/"
+}

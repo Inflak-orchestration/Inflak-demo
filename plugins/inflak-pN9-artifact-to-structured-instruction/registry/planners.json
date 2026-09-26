@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "chart-analysis-instruction",
+      "task_family": "artifact-grounded-data-analysis",
+      "skill": "l2-pN9-chart-analysis-exploration",
+      "execution_skill": "exec-pN9-report-generation",
+      "execution_skill_path": "skills/exec-pN9-report-generation/SKILL.md",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-pN9-chart-analysis-exploration/SKILL.md",
+      "priority": 95,
+      "trigger_summary": "Use when an uploaded chart, dashboard, report, visualization, CSV, or spreadsheet needs a user-confirmed analysis direction before analysis is generated.",
+      "required_state": ["user_text", "source_artifact_ref"],
+      "optional_state": ["artifact_profile", "data_inventory", "analysis_suggestions", "selection_state", "analysis_brief", "report_plan", "compiled_instruction", "generated_report", "report_review_state", "prior_returns"],
+      "iai_edges": ["A→G", "G→I", "I→T", "T→Aug", "Aug→G", "G→A", "I→A"],
+      "gap_categories": ["data_availability_gap", "analysis_direction_gap", "progressive_narrowing_gap", "brief_completion_or_confirmation_gap", "report_composition_gap", "report_review_gap"],
+      "allowed_tools": [],
+      "loop_return_to": "l1-pN9-core-module",
+      "expected_outputs": ["compiled_analysis_instruction", "structured_analysis_report"]
+    }
+  ]
+}

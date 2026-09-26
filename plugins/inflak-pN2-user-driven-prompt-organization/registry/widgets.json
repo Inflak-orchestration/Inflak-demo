@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "widgets": [
+    {
+      "id": "storyboard-block-composer",
+      "skill": "l3-pN2-storyboard-block-composer",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN2-storyboard-block-composer/SKILL.md",
+      "widget_type": "storyboard_prompt_block_composer",
+      "surface": "conversation_widget",
+      "interaction_modality": "input_grounded_prompt_organization",
+      "supported_artifact_types": ["structured-visual-instruction", "structured-storyboard-prompt"],
+      "interaction_goals": ["organize_prompt_structure", "add_source_content", "repair_prompt_structure", "review_prompt_structure"],
+      "iai_edges": ["H→I", "H→T", "I→T"],
+      "gap_categories": ["prompt_structure_entry_gap", "prompt_source_gap", "prompt_structure_gap", "prompt_confirmation_gap"],
+      "state_update_targets": ["prompt_structure"],
+      "expected_return_types": ["schema_version", "source_text", "mode", "groups", "units", "submission_status"],
+      "widget_capabilities": ["edit_source_text", "resegment_source", "highlight_source_span", "edit_unit", "activate_unit", "lock_unit", "add_unit", "remove_unit", "move_unit", "add_group", "rename_group", "reorder_group", "select_structure_mode", "validate_prompt_structure"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["visual-story-composition"]
+    },
+    {
+      "id": "structured-instruction-preview",
+      "skill": "l3-pN2-structured-instruction-preview",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN2-structured-instruction-preview/SKILL.md",
+      "widget_type": "structured_instruction_preview",
+      "surface": "conversation_widget",
+      "interaction_modality": "structured_instruction_review",
+      "supported_artifact_types": ["structured-visual-instruction", "structured-storyboard-prompt"],
+      "interaction_goals": ["review_compiled_instruction"],
+      "iai_edges": ["T→Aug", "H→I"],
+      "gap_categories": ["instruction_preview_gap"],
+      "state_update_targets": ["instruction_preview_status"],
+      "expected_return_types": ["preview_status"],
+      "widget_capabilities": ["review_structured_instruction", "confirm_generation", "return_to_structure"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["visual-story-composition"]
+    }
+  ]
+}

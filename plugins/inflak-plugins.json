@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0",
+  "plugins": [
+    {
+      "id": "inflak-main",
+      "directory": "inflak-main",
+      "label": "inflak Main",
+      "description": "Dialogue-first image creation, intelligent editing, reusable asset extraction, and text writing with adaptive task-specific interactions.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-author",
+      "directory": "inflak-author",
+      "label": "inflak Author",
+      "description": "Conversationally design, preview, validate, and publish a new four-layer inflak plugin from a non-technical description of the intended human-AI collaboration.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN1-user-driven-prompt-refinement",
+      "directory": "inflak-pN1-user-driven-prompt-refinement",
+      "label": "inflak P1 User-Driven Prompt Refinement",
+      "description": "P1 paradigm: the user selects parts of a drafted image prompt for GenAI to extend, steer, or restyle; the prompt is the object of every interaction, and the image is generated once confirmed.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN2-user-driven-prompt-organization",
+      "directory": "inflak-pN2-user-driven-prompt-organization",
+      "label": "inflak P2 User-Driven Prompt Organization",
+      "description": "P2 paradigm: the user reviews and organizes traceable prompt units derived from their own visual instruction; the confirmed single-image or multi-scene structure is compiled without erasing user wording.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN3-interaction-as-part-of-instruction",
+      "directory": "inflak-pN3-interaction-as-part-of-instruction",
+      "label": "inflak P3 Interaction as Part of Instruction",
+      "description": "P3 paradigm: a user draws a color-to-object layout sketch, confirms the compiled spatial brief, and uses it with a prompt to generate an image.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN4-referenced-artifact-as-instruction",
+      "directory": "inflak-pN4-referenced-artifact-as-instruction",
+      "label": "inflak P4 Referenced Artifact as Instruction",
+      "description": "P4 paradigm: the user directly marks a local region of an existing image artifact, combines it with an inpaint instruction, and reviews the generated edit.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN5-ai-driven-prompt-suggestion",
+      "directory": "inflak-pN5-ai-driven-prompt-suggestion",
+      "label": "inflak P5 AI-Driven Prompt Suggestion",
+      "description": "P5 paradigm: GenAI expands a writer's seed idea into distinct narrative directions, then the writer selects and focuses them into a confirmed prompt before generating text.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN6-ai-driven-prompt-decomposition",
+      "directory": "inflak-pN6-ai-driven-prompt-decomposition",
+      "label": "inflak P6 AI-Driven Prompt Decomposition",
+      "description": "P6 paradigm: GenAI decomposes a source prompt into traceable, fine-grained components that the user can organize and edit on a Canvas before generating a downloadable story.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN7-generative-prompt-control-widgets",
+      "directory": "inflak-pN7-generative-prompt-control-widgets",
+      "label": "inflak P7 Generative Prompt Control Widgets",
+      "description": "P7 paradigm: GenAI identifies controllable image-prompt units, then users adjust semantic priority, composition, candidate preferences, and supported prompt weights through embedded controls before generation.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN8-generative-artifact-control-widgets",
+      "directory": "inflak-pN8-generative-artifact-control-widgets",
+      "label": "inflak P8 Generative Artifact Control Widgets",
+      "description": "P8 artifact-grounded paradigm with a persistent upload-first Canvas replacing the conversation surface.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN9-artifact-to-structured-instruction",
+      "directory": "inflak-pN9-artifact-to-structured-instruction",
+      "label": "inflak P9 Artifact to Structured Instruction",
+      "description": "P9 grounds an analysis request in an uploaded chart or table, links recommendations to source data, and has the active Host Agent generate a structured evidence-backed report.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN10-artifact-to-multimodal-instruction",
+      "directory": "inflak-pN10-artifact-to-multimodal-instruction",
+      "label": "inflak P10 Artifact to Multimodal Instruction",
+      "description": "P10 analyzes an SVG artifact without a user prompt, generates object-grounded refinement suggestions, collects anchored decisions, and exports an Augmented Instruction.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN11-artifact-driven-prompt-enhancement",
+      "directory": "inflak-pN11-artifact-driven-prompt-enhancement",
+      "label": "inflak P11 Artifact-Driven Prompt Enhancement",
+      "description": "P11 grounds an existing user prompt in a stable SVG artifact, resolves ambiguous targets and actions through object-anchored interaction, then exports a confirmed enhanced prompt.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN12-interactive-artifact-refinement",
+      "directory": "inflak-pN12-interactive-artifact-refinement",
+      "label": "inflak P12 Interactive Artifact Refinement",
+      "description": "P12 grounds a refinement prompt in a layered SVG collage, collects post-GenAI artifact interactions, and commits confirmed changes as new artifact revisions without producing an Augmented Instruction.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-collage-authoring",
+      "directory": "inflak-collage-authoring",
+      "label": "inflak Collage Authoring",
+      "description": "Unified SVG creation, artifact analysis, prompt grounding, recommendation, authoring, and revision workflow backed by one four-layer task and shared typed tools.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-pN13-ai-proactively-initiated-interaction",
+      "directory": "inflak-pN13-ai-proactively-initiated-interaction",
+      "label": "inflak P13 AI-Proactively-Initiated Interaction",
+      "description": "P13 infers any user intent from the current turn and conversation context, then presents one evidence-backed best recommendation with feasible alternatives for user selection without executing it.",
+      "status": "ready"
+    },
+    {
+      "id": "inflak-daily-paper-conclusion",
+      "directory": "inflak-daily-paper-conclusion",
+      "label": "Daily Paper Conclusion Assistant",
+      "description": "Create an evidence-linked daily digest from recent public arXiv cs.HC papers.",
+      "status": "ready"
+    }
+  ]
+}

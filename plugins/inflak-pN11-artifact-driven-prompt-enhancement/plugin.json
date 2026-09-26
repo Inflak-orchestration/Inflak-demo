@@ -1,0 +1,6 @@
+{
+  "name": "inflak-pn11-artifact-driven-prompt-enhancement",
+  "description": "SVG-grounded prompt enhancement with direct Host execution and validation.",
+  "version": "1.0.0",
+  "skills": "skills/"
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "tools": [
+    {
+      "id": "render_html_widget",
+      "callable": "render_html_widget",
+      "layer": "layer-4",
+      "category": "html_widget_renderer",
+      "description": "Render inflak Author's focused dialogue and review contracts in the conversation."
+    },
+    {
+      "id": "inspect_inflak_authoring_resources",
+      "callable": "inspect_inflak_authoring_resources",
+      "layer": "session",
+      "category": "authoring_resource_inspector",
+      "required_parameters": ["resources"],
+      "compatible_planners": ["inflak-authoring"],
+      "description": "Statically inspect uploaded authoring resources without executing code or reading secrets."
+    },
+    {
+      "id": "preview_inflak_plugin",
+      "callable": "preview_inflak_plugin",
+      "layer": "session",
+      "category": "inflak_plugin_compiler",
+      "required_parameters": ["target_spec", "approved_revision"],
+      "compatible_planners": ["inflak-authoring"],
+      "description": "Compile an immutable staging bundle and validate it against canonical contract hashes, L1-L4/registry/return invariants, callable root alias, and host runtime tool bindings."
+    },
+    {
+      "id": "publish_inflak_plugin",
+      "callable": "publish_inflak_plugin",
+      "layer": "session",
+      "category": "inflak_plugin_publisher",
+      "required_parameters": ["preview_id", "preview_hash", "approved_revision"],
+      "compatible_planners": ["inflak-authoring"],
+      "description": "Publish only an approved immutable staging bundle, validate the installed copy, hot-refresh the Copilot plugin runtime, and smoke-load the callable root skill before retaining ready status."
+    }
+  ]
+}

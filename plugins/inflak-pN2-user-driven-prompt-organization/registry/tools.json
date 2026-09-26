@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "tools": [
+    {
+      "id": "generate_image",
+      "callable_name": "generate_image",
+      "layer": "session",
+      "category": "image_generation",
+      "description": "Generate a single image or multi-panel storyboard from the exact user-confirmed deterministic instruction preview. Registered in the session; L2 directly invokes it after instruction_ready without L3/L4 and returns the actual result or failure to L1.",
+      "required_parameters": ["prompt"],
+      "optional_parameters": ["size", "quality"],
+      "result_artifact_types": ["image"],
+      "compatible_planners": ["visual-story-composition"]
+    },
+    {
+      "id": "render_html_widget",
+      "callable_name": "render_html_widget",
+      "layer": "layer-4",
+      "category": "generated_widget_renderer",
+      "description": "Render the P2 storyboard block composer and return the user's structured visual-story composition.",
+      "required_parameters": ["widget_type", "render_mode", "display", "controls", "planner_id", "interaction_goal", "expected_return"],
+      "result_artifact_types": [],
+      "compatible_planners": ["visual-story-composition"]
+    }
+  ]
+}

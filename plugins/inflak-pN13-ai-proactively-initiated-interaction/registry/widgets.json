@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "widgets": [
+    {
+      "id": "p13-intention-basic-widget",
+      "skill": "l3-pN13-intention-basic-widget",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN13-intention-basic-widget/SKILL.md",
+      "widget_type": "adaptive_basic_widget",
+      "surface": "inline_widget",
+      "interaction_modality": "intention_driven_basic_controls",
+      "supported_artifact_types": [],
+      "interaction_goals": ["present_confirmed_intention"],
+      "iai_edges": ["G→I"],
+      "gap_categories": ["intention_presentation_gap", "intent_disambiguation_gap"],
+      "state_update_targets": ["I"],
+      "return_mode": "schema",
+      "return_field_policy": "planner_declared",
+      "expected_return_types": ["value", "selected_values", "text", "number", "enabled", "action"],
+      "placement_modes": ["inline"],
+      "widget_capabilities": ["buttons", "single_choice", "multiple_choice", "text_input", "slider", "toggle"],
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["pN13-proactive-intent-recommendation"]
+    },
+    {
+      "id": "p13-implementation-widget",
+      "skill": "l3-pN13-implementation-widget",
+      "layer": "layer-3",
+      "canonical_skill_path": "skills/l3-pN13-implementation-widget/SKILL.md",
+      "widget_type": "adaptive_implementation_widget",
+      "surface": "inline_widget",
+      "interaction_modality": "confirmed_action_implementation_input",
+      "supported_artifact_types": ["any"],
+      "interaction_goals": ["refine_confirmed_implementation", "ground_confirmed_implementation"],
+      "iai_edges": ["I→Aug", "I→A"],
+      "gap_categories": ["implementation_interaction_gap"],
+      "state_update_targets": ["Aug", "A"],
+      "return_mode": "schema",
+      "return_field_policy": "planner_declared",
+      "expected_return_types": ["values", "freeform_note"],
+      "placement_modes": ["inline"],
+      "widget_capabilities": ["typed_parameters", "editable_content", "grounded_selection", "artifact_review", "source_aligned_annotation", "spatial_input"],
+      "implementation_modes": ["adjust-preview", "align-distribute", "artifact-diff", "artifact-review", "aspect-ratio-picker", "asset-review", "asset-selector", "choice-cards", "claim-review", "color-palette", "composition-canvas", "connection-map", "continuous-controls", "crop-frame", "crop-transform", "cutout-candidate-board", "draggable-board", "gesture-surface", "image-compare", "konva-canvas", "nudge-pad", "order-stack", "paper-evidence-selector", "region-annotator", "rewrite-controls", "rewrite-highlight-editor", "shortcut-surface", "sketch-pad", "structured-form", "style-inspector", "swatch-gallery", "tldraw-canvas", "transform-inspector"],
+      "mode_runtime_requirements": {
+        "composition-canvas": {"external_libraries": ["konva.js"], "capabilities": ["canvas_selection", "canvas_transform", "layer_order", "layer_treatment"]},
+        "konva-canvas": {"external_libraries": ["konva.js"], "capabilities": ["canvas_selection", "canvas_transform", "spatial_annotation"]},
+        "gesture-surface": {"external_libraries": ["interact.js"], "capabilities": ["drag", "resize", "pointer_constraints"]},
+        "shortcut-surface": {"external_libraries": ["hotkeys-js"], "capabilities": ["keyboard_shortcuts", "command_selection"]},
+        "tldraw-canvas": {"external_libraries": ["tldraw"], "capabilities": ["whiteboard_authoring", "spatial_composition", "drawing_export"]}
+      },
+      "primary_renderer": "render_html_widget",
+      "compatible_planners": ["pN13-proactive-intent-recommendation"]
+    }
+  ]
+}

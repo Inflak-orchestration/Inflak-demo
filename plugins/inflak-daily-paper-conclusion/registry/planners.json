@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "planners": [
+    {
+      "id": "daily-paper-conclusion",
+      "skill": "l2-daily-paper-conclusion-planner",
+      "layer": "layer-2",
+      "canonical_skill_path": "skills/l2-daily-paper-conclusion-planner/SKILL.md",
+      "task_family": "daily-paper-conclusion",
+      "required_state": [
+        "user_text",
+        "conversation_context"
+      ],
+      "optional_state": [
+        "task_frame",
+        "daily_scope",
+        "scope_decision",
+        "collection_readiness_status",
+        "candidate_list",
+        "collection_status",
+        "skipped_entry_log",
+        "paper_evidence_cards",
+        "inspection_warnings",
+        "inclusion_decisions",
+        "theme_map",
+        "synthesis_direction",
+        "coverage_notes",
+        "draft_digest",
+        "reviewed_digest",
+        "revision_requests",
+        "accepted_digest",
+        "export_status",
+        "final_acceptance",
+        "revision_marker",
+        "prior_returns"
+      ],
+      "iai_edges": [
+        "H→T",
+        "T→Aug",
+        "H→I",
+        "I→Aug",
+        "A→I",
+        "Aug→G",
+        "G→A"
+      ],
+      "gap_categories": [
+        "scope_setup_gap",
+        "candidate_collection_review_gap",
+        "paper_inspection_resolution_gap",
+        "synthesis_direction_review_gap",
+        "digest_acceptance_review_gap"
+      ],
+      "allowed_tools": [],
+      "loop_return_to": "l1-daily-paper-conclusion-core",
+      "trigger_summary": "Create an evidence-linked daily digest from recent public arXiv cs.HC papers."
+    }
+  ]
+}
