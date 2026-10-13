@@ -10,15 +10,6 @@ frontend/dist/
 frontend/node_modules/
 node_modules/
 .env.local
-.env.*
-!.env.example
-.copilot/
-.config/
-.azure/
-*.pem
-*.key
-logs/
-*.log
 backend/services/local_config.py
 data/
 .DS_Store

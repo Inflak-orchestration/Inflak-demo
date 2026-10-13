@@ -1,4 +1,4 @@
-# Inflak-demo
+# Inflak Copilot Agent System
 
 Standalone runtime extracted from the research workspace. Includes the Copilot
 SDK host, FastAPI backend, web frontend, CLI, and 17 registered Inflak plugins.
@@ -27,8 +27,6 @@ are included locally; no link to the original project is required.
 Use Python 3.11+, Node.js 18+ with npm, GitHub CLI, and zsh:
 
 ```bash
-git clone https://github.com/Inflak-orchestration/Inflak-demo.git
-cd Inflak-demo
 python3.11 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
@@ -37,11 +35,7 @@ gh auth login
 ./start
 ```
 
-Image generation requires your own configured image provider. Copy
-`backend/services/local_config.example.py` to
-`backend/services/local_config.py` and configure it locally, or use environment
-variables. Copilot authentication and image-provider (including ImagePAI)
-credentials are not distributed with this repository.
+Image generation requires a configured image provider.
 
 ## Contents
 
@@ -60,8 +54,7 @@ data, logs, examples, plugin archives, Git history, paper/video assets, and the
 external gallery interface are not included. New-session case recording remains
 available for research traces.
 
-The private `backend/services/local_config.py`, environment files, authentication
-caches, logs, and runtime data are ignored by Git. Never commit credentials.
-Use your own Copilot-enabled account with `gh auth login`; GitHub authentication
-remains in your machine's login store. Remove private configuration and runtime
-data before sharing the folder outside Git.
+The existing private `backend/services/local_config.py` was copied for local use
+and is ignored by Git. It may contain credentials: remove it before sharing this
+folder and use `local_config.example.py` or environment variables to configure
+another installation. GitHub authentication remains in the machine's login store.
