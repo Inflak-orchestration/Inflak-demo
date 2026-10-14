@@ -1,4 +1,4 @@
-"""Runtime layer-order enforcement for the inflak plugin.
+"""Runtime layer-order enforcement for the Inflak plugin.
 
 The roles are L1 Router, L2 Planner, L3 Designer, and L4 Renderer:
 

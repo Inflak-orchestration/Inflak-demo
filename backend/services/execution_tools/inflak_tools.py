@@ -1,3 +1,5 @@
+"""Host interaction tools for Inflak plugins."""
+
 from __future__ import annotations
 
 import json

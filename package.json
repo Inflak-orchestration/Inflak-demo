@@ -1,7 +1,7 @@
 {
-  "name": "copilot-sdk-chat-cli",
+  "name": "inflak-demo",
   "version": "1.0.0",
-  "description": "一个最小可用的 GitHub Copilot SDK 本地 Web 聊天前端。启动后会打开浏览器里的 ChatGPT/Copilot 风格聊天界面，用 GitHub 账号登录态认证，并通过 Python 后端调用 Copilot SDK。",
+  "description": "Inflak Demo：基于 GitHub Copilot SDK 的交互式人机协作插件演示，提供 Web 界面、FastAPI 后端和终端入口。",
   "main": "index.js",
   "directories": {
     "example": "examples"

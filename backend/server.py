@@ -59,7 +59,7 @@ class SvgAccessibilityPatchRequest(BaseModel):
     operations: list[dict[str, Any]]
 
 
-app = FastAPI(title="Copilot SDK Web Chat", version="0.1.0")
+app = FastAPI(title="Inflak Demo", version="0.1.0")
 
 app.add_middleware(
     CORSMiddleware,

@@ -25,7 +25,7 @@ _IMAGE_API_TIMEOUT_SECONDS = float(os.getenv("OPENAI_IMAGE_TIMEOUT_SECONDS", "18
 
 class GenerateImageParams(BaseModel):
     prompt: str = Field(
-        description="The complete image-generation prompt compiled by the image-pilot planner (subject, composition, palette, style, references)."
+        description="The complete image-generation prompt compiled by the Inflak image-generation planner (subject, composition, palette, style, references)."
     )
     size: str = Field(default="1024x1024", description="Image size: 1024x1024, 1536x1024, 1024x1536, or auto.")
     quality: str = Field(default="high", description="Render quality: low, medium, high, or auto.")
@@ -567,7 +567,7 @@ async def _deliver_image(
 def build_image_tools(session_ref: dict[str, Any]) -> list[Tool]:
     """Build the OpenAI image generation tool.
 
-    The image-pilot planner calls this after compiling a structured image brief.
+    The Inflak image-generation planner calls this after compiling a structured image brief.
     Azure uses Azure CLI authentication by default when no API key is configured;
     set AZURE_OPENAI_AUTH=azure_cli to force it. The generated PNG is saved to
     the session uploads, shown in the chat as an attachment, and a compact

@@ -233,7 +233,7 @@ def canonical_contract_reference() -> dict[str, Any]:
 
 def runtime_tool_bindings() -> dict[str, dict[str, Any]]:
     """Build the host and plugin MCP tool catalog without invoking handlers."""
-    from backend.services.execution_tools.iai_tools import build_iai_tools
+    from backend.services.execution_tools.inflak_tools import build_iai_tools
     from backend.services.execution_tools.image_tools import build_image_tools
     from backend.services.inflak_plugins import runtime_mcp_tool_bindings
 

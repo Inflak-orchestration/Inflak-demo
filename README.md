@@ -1,16 +1,16 @@
-# Inflak Copilot Agent System
+# Inflak Demo
 
-Standalone runtime extracted from the research workspace. Includes the Copilot
-SDK host, FastAPI backend, web frontend, CLI, and 17 registered Inflak plugins.
+Inflak Demo includes the Copilot SDK host, FastAPI backend, web frontend, CLI,
+and 17 registered Inflak plugins.
 
-## Start on this machine
+## Start
 
 ```bash
-conda activate opendeepresearch
+source .venv/bin/activate
 ./start
 ```
 
-Open http://127.0.0.1:8002 . The original research workspace uses port 8001.
+Open http://127.0.0.1:8002 .
 Repeated starts reuse this project's existing server. The default model is
 `gpt-5.5`; the default agent working directory is this project.
 
@@ -19,10 +19,10 @@ Repeated starts reuse this project's existing server. The default model is
 ```
 
 GitHub CLI must be installed and authenticated with a Copilot-enabled account.
-The Python environment is external to this folder. JavaScript dependencies
-are included locally; no link to the original project is required.
+Activate your Python 3.11+ environment before starting. The examples use `.venv`;
+replace it with your environment's path if needed.
 
-## Install on another machine
+## Installation
 
 Use Python 3.11+, Node.js 18+ with npm, GitHub CLI, and zsh:
 
@@ -35,7 +35,10 @@ gh auth login
 ./start
 ```
 
-Image generation requires a configured image provider.
+Image generation requires a configured image provider. Use environment variables
+or copy `backend/services/local_config.example.py` to
+`backend/services/local_config.py` and configure it locally. The local config is
+ignored by Git; do not include credentials when sharing the project.
 
 ## Contents
 
@@ -45,16 +48,5 @@ Image generation requires a configured image provider.
 - `frontend/`: chat, widgets, artifact canvas, and authoring interfaces.
 - `plugins/`: active plugins, skills, registries, authoring contracts.
 - `start`, `chat_cli.py`: web and terminal entry points.
-- `node_modules/`: installed JavaScript dependencies, including Vega rendering.
+- `node_modules/`: JavaScript dependencies installed by `npm ci`, including Vega rendering.
 - `data/`: created on demand for new sessions, uploads, and generated artifacts.
-
-Plugin-local `tests/scenarios.json` files are retained because publication and
-runtime acceptance use them. Backend unit tests, research evaluation, historical
-data, logs, examples, plugin archives, Git history, paper/video assets, and the
-external gallery interface are not included. New-session case recording remains
-available for research traces.
-
-The existing private `backend/services/local_config.py` was copied for local use
-and is ignored by Git. It may contain credentials: remove it before sharing this
-folder and use `local_config.example.py` or environment variables to configure
-another installation. GitHub authentication remains in the machine's login store.

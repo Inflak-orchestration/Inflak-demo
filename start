@@ -38,8 +38,8 @@ python_cmd=()
 
 if python -c 'import sys; raise SystemExit(0 if sys.version_info >= (3, 11) else 1)' >/dev/null 2>&1; then
   python_cmd=(python)
-elif command -v conda >/dev/null 2>&1; then
-  python_cmd=(conda run -n opendeepresearch python)
+elif python3 -c 'import sys; raise SystemExit(0 if sys.version_info >= (3, 11) else 1)' >/dev/null 2>&1; then
+  python_cmd=(python3)
 fi
 
 if (( ${#python_cmd[@]} == 0 )); then
@@ -71,11 +71,11 @@ fi
 
 if [[ "$running_project" == "$script_dir" ]]; then
   if (( audit )); then
-    print "Copilot SDK Web Chat is already running at ${url}."
+    print "Inflak Demo is already running at ${url}."
     print "Stop that process before running ./start --audit on the same canonical port."
     exit 2
   fi
-  print "Copilot SDK Web Chat is already running at ${url}"
+  print "Inflak Demo is already running at ${url}"
   print "Reusing the existing server and browser page."
   exit 0
 fi
@@ -93,12 +93,12 @@ if (( port_in_use )); then
   exit 2
 fi
 
-print "Starting Copilot SDK Web Chat at ${url}"
+print "Starting Inflak Demo at ${url}"
 print "Use ./start --cli for the terminal fallback."
 export COPILOT_OPEN_BROWSER="${COPILOT_OPEN_BROWSER:-1}"
 export COPILOT_WEB_URL="$url"
 if [[ "$COPILOT_OPEN_BROWSER" == "1" && -z "${COPILOT_BROWSER_MARKER:-}" ]]; then
-  export COPILOT_BROWSER_MARKER="${TMPDIR:-/tmp}/copilot-sdk-chat-${port}-$$-$(date +%s).browser-opened"
+  export COPILOT_BROWSER_MARKER="${TMPDIR:-/tmp}/inflak-demo-${port}-$$-$(date +%s).browser-opened"
 fi
 
 if (( audit )); then
